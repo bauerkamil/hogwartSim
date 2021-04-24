@@ -10,7 +10,7 @@ package hogwartSim.general.creator{
     class GeneralCreator{
         #numStudents: int
         #numTeachers: int
-        #numItems: int
+        #numBeers: int
         #numBasilisks: int
 
         +GeneralCreator(int, int, int, int)

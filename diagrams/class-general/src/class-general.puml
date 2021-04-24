@@ -68,6 +68,8 @@ package "hogwartSim.general" {
 
         +Beer(String)
         +addPoints(String): void
+        'zgodnie z wykładem to klasa powinna deycdować sama o własnych wartościach
+        'czyli trzebaby przenieść metody kill i drink?
     }
 IGeneral <|-- General
 IRandomizable <|-- General
