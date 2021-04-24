@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+
+package hogwartSim.dumbledore{
+interface IDumbledore{
+- addsPoints(String): void
++ declareWinner(String, int): String
+}
+class Dumbledore{
++pointList: List<IPointGetter>
+- addsPoints(String): void
++ declareWinner(String, int): String
+}
+
+IDumbledore <|-- Dumbledore
+}
+
+package hogwartSim.general{
+interface IPointGetter
+}
+
+IDumbledore - IPointGetter
+
+@enduml

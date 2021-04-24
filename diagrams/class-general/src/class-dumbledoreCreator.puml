@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+
+package hogwartSim.dumbledore.creator{
+interface IDumbledoreCreator{
++dumbledoreCreator()
+}
+class DumbledoreCreator{
++dumbledoreCreator()
+}
+IDumbledoreCreator <|-- DumbledoreCreator
+}
+
+@enduml

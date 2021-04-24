@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+
+package hogwartSim.map{
+interface IMap{
++getSize(): int
++getGeneral(int): IGeneral
++getGeneralPosition(IGeneral): int, int
+}
+class MaraudersMap{
+-general: IGeneral[]
+-generalPosition: Map<IGeneral, Integer, Integer>
++getSize(): int
++getGeneral(int): IGeneral
++getGeneralPosition(IGeneral): int, int
+}
+IMap <|-- MaraudersMap
+}
+package hogwartSim.general{
+interface IGeneral
+}
+IMap - IGeneral
+
+@enduml

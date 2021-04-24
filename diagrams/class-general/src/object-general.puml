@@ -1,0 +1,68 @@
+@startuml
+'https://plantuml.com/object-diagram
+'skinparam classAttributeIconSize 0
+
+object "simulation: Simulation" as simulation{
+numIters: 10
+}
+object "generalCreator: GeneralCreator" as generalCreator{
+numStudents: 1
+numItems: 10
+numTeachers: 4
+numBasilisks: 1
+}
+object "mapCreator: MapCreator" as mapCreator{
+
+}
+object "maraudersMap: MaraudersMap" as m2{
+
+}
+object "dumbledoreCreator: DumbledoreCreator" as dumbledoreCreator{
+
+}
+object "dumbledore: Dumbledore" as dumbledore{
+
+}
+object "student1: Student" as s1{
+house: Gryfffindor
+seed = 0
+}
+object "basilisk: Basilisk" as basilisk{
+seed = 0
+}
+object "teacher: Teacher" as teacher{
+house: Gryffindor
+seed = 0
+}
+object "specialItem: Item" as item{
+house: Gryffindor
+seed = 0
+}
+
+simulation -- generalCreator: uses
+simulation -- mapCreator: uses
+mapCreator -- m2: creates
+simulation -- dumbledoreCreator: uses
+dumbledoreCreator -- dumbledore: creates
+generalCreator -- s1: creates
+generalCreator -- basilisk: creates
+generalCreator -- teacher: creates
+generalCreator -- item: creates
+m2 	o-- s1: stores position
+m2 	--o s1: stores reference
+m2 	o-- basilisk: stores position
+m2 	--o basilisk: stores reference
+m2 	o-- teacher: stores position
+m2 	--o teacher: stores reference
+m2 	o-- item: stores position
+m2 	--o item: stores reference
+item -- dumbledore: add points
+teacher -- dumbledore: add points
+basilisk - s1: kills
+s1 - item: use item
+s1 - teacher: meets
+simulation *-- "1" s1
+simulation *-- "4" teacher
+simulation *-- "1" basilisk
+simulation *-- "10" item
+@enduml

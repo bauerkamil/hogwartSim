@@ -1,0 +1,82 @@
+@startuml
+'https://plantuml.com/object-diagram
+skinparam classAttributeIconSize 0
+
+package "hogwartSim.general" {
+
+interface IRandomizable{
++getSeed(): long
++setSeed(long): long
+}
+
+interface IGeneral{
++getMap(): IMap
++setMap(IMap): void
+}
+abstract class "General"{
+#rnd: Rnd
+#seed: long
+#map: IMap
++getSeed(): long
++setSeed(long): long
++getMap(): IMap
++setMap(IMap): void
++General(IMap)
+}
+interface ICreature{
++move(): void
+}
+abstract class Creature{
++move(): void
+}
+'class House{
+'#memberList: List<Wizard>
+'-sortingHat(String): String
+'}
+interface IKill{
++kill(String): void
+}
+class Basilisk{
++kill(String): void
+}
+interface IUseItem{
++useItem(String): void
+}
+abstract class Wizard{
+#house: String
+}
+class Student{
+#isAlive: boolean
++useItem(String): void
+}
+interface IPointGetter{
++addPoints(String): void
+}
+abstract class PointGetter{
++addPoints(String): void
+}
+class Teacher{
++isTheSameHouse(String): boolean
+}
+class Beer{
+#isUsed: boolean
+}
+IGeneral <|-- General
+IRandomizable <|-- General
+IKill <|-- Basilisk
+'House *-- Wizard
+IPointGetter <|-- PointGetter
+PointGetter <|-- Teacher
+PointGetter <|-- Beer
+General *-- ICreature
+ICreature <|-- Creature
+Creature <|-- Basilisk
+Creature <|-- Wizard
+Wizard <|-- Teacher
+Wizard <|-- Student
+IUseItem <|-- Student
+Student - Teacher
+Student - Beer
+Student - Basilisk
+}
+@enduml

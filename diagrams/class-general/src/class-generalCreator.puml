@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+
+package hogwartSim.general.creator{
+interface IGeneralCreator{
++createGeneral(IMap): List <IGeneral>
+}
+class GeneralCreator{
+#numStudents: int
+#numTeachers: int
+#numItems: int
+#numBasilisks: int
++GeneralCreator(int, int, int, int)
++GeneralCreator()
++createGeneral(IMap): List <IGeneral>
++sortingHat(Wizard): String
+}
+IGeneralCreator <|-- GeneralCreator
+}
+
+@enduml
