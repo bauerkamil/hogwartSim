@@ -4,61 +4,71 @@ skinparam classAttributeIconSize 0
 
 package "hogwartSim.general" {
 
-interface IRandomizable{
-+getSeed(): long
-+setSeed(long): long
-}
+    interface IRandomizable{
+        +getSeed(): long
+        +setSeed(long): long
+    }
+    interface IGeneral{
+        +getMap(): IMap
+        +setMap(IMap): void
+    }
+    abstract class "General"{
+        #rnd: Rnd
+        #seed: long
+        #map: IMap
 
-interface IGeneral{
-+getMap(): IMap
-+setMap(IMap): void
-}
-abstract class "General"{
-#rnd: Rnd
-#seed: long
-#map: IMap
-+getSeed(): long
-+setSeed(long): long
-+getMap(): IMap
-+setMap(IMap): void
-+General(IMap)
-}
-interface ICreature{
-+move(): void
-}
-abstract class Creature{
-+move(): void
-}
+        +General(IMap)
+        +getSeed(): long
+        +setSeed(long): long
+        +getMap(): IMap
+        +setMap(IMap): void
+    }
+    interface ICreature{
+        +move(): void
+    }
+    abstract class Creature{
+        +Creature(String)
+        +move(): void
+    }
 'class House{
-'#memberList: List<Wizard>
-'-sortingHat(String): String
+'   #memberList: List<Wizard>
+'   -sortingHat(String): String
 '}
-interface IKill{
-+kill(String): void
-}
-class Basilisk{
-+kill(String): void
-}
-interface IUseItem{
-+useItem(String): void
-}
-abstract class Wizard{
-#house: String
-}
-class Student{
-#isAlive: boolean
-+useItem(String): void
-}
-interface IPointGetter{
-+addPoints(String): void
-}
+    interface IKill{
+        +kill(String): void
+    }
+    class Basilisk{
+        +Basilisk(String)
+        +kill(String): void
+    }
+    interface IUseItem{
+        +drinkBeer(String): void
+    }
+    abstract class Wizard{
+        #house: String
 
-class Teacher{
-+isTheSameHouse(String): boolean
-}
-class Beer{
-#isUsed: boolean
-}
+        +Wizard(String, String)
+    }
+    class Student{
+        #isAlive: boolean
+
+        +Student(String, String)
+        +drinkBeer(String): void
+    }
+    interface IPointGetter{
+        +addPoints(String): void
+    }
+    class Teacher{
+        +Teacher(String, String)
+        +isTheSameHouse(String): boolean
+        +addPoints(String): void
+    }
+    class Beer{
+        #isUsed: boolean
+
+        +Beer(String)
+        +addPoints(String): void
+    }
 IGeneral <|-- General
 IRandomizable <|-- General
 IKill <|-- Basilisk

@@ -4,22 +4,26 @@
 skinparam classAttributeIconSize 0
 
 package hogwartSim.map{
-interface IMap{
-+getSize(): int
-+getGeneral(int): IGeneral
-+getGeneralPosition(IGeneral): int, int
-}
-class MaraudersMap{
--general: IGeneral[]
--generalPosition: Map<IGeneral, Integer, Integer>
-+getSize(): int
-+getGeneral(int): IGeneral
-+getGeneralPosition(IGeneral): int, int
+    interface IMap{
+        +getSize(): int
+        +getGeneral(int): IGeneral
+        +getXPosition(IGeneral): int
+        +getYPosition(IGeneral): int
+    }
+    class MaraudersMap{
+        -general: IGeneral[]
+        -generalPosition: Map<IGeneral, Integer, Integer>
+
+        +MaraudersMap(int, int)
+        +getSize(): int
+        +getGeneral(int): IGeneral
+        +getXPosition(IGeneral): int
+        +getYPosition(IGeneral): int
 }
 IMap <|-- MaraudersMap
 }
 package hogwartSim.general{
-interface IGeneral
+    interface IGeneral
 }
 IMap - IGeneral
 

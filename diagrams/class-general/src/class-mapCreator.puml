@@ -4,14 +4,15 @@
 skinparam classAttributeIconSize 0
 
 package hogwartSim.map.creator{
-interface IMapCreator{
-+createMap(): IMap
-}
-class MapCreator{
--mapSize: int
-+mapCreator(int)
-+createMap(): IMap
-}
+    interface IMapCreator{
+        +createMap(): IMap
+    }
+    class MapCreator{
+        -mapSize: int
+
+    +mapCreator(int)
+    +createMap(): IMap
+    }
 IMapCreator <|-- MapCreator
 }
 

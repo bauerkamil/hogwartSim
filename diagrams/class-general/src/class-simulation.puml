@@ -4,31 +4,31 @@
 skinparam classAttributeIconSize 0
 
 package hogwartSim{
+    class Simulation{
+        -map: IMap
+        -rnd: Rnd
+        -generalList: List<IGeneral>
+        -numIter: int
+        -pointList: List<IPointGetter>
 
-class Simulation{
--map: IMap
--rnd: Rnd
--generalList: List<IGeneral>
--numIter: int
--pointList: List<IPointGetter>
-+Simulation(IMapCreator, IGeneralCreator, IDumbledoreCreator, long, int)
-+runSimulation(): void
-+main(String[]): void
-}
+        +Simulation(IMapCreator, IGeneralCreator, IDumbledoreCreator, long, int)
+        +runSimulation(): void
+        +main(String[]): void
+    }
 }
 
 package hogwartSim.general{
-interface IGeneral
+    interface IGeneral
 }
 Simulation *- IGeneral: generalList
 
 package hogwartSim.map{
-interface IMap
+    interface IMap
 }
 Simulation *- "map" IMap
 
 package hogwartSim.dumbledore{
-interface IDumbledore
+    interface IDumbledore
 }
 Simulation *- IDumbledore: pointList
 

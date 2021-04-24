@@ -4,12 +4,12 @@
 skinparam classAttributeIconSize 0
 
 package hogwartSim.dumbledore.creator{
-interface IDumbledoreCreator{
-+dumbledoreCreator()
-}
-class DumbledoreCreator{
-+dumbledoreCreator()
-}
+    interface IDumbledoreCreator{
+        +dumbledoreCreator()
+    }
+    class DumbledoreCreator{
+        +dumbledoreCreator()
+    }
 IDumbledoreCreator <|-- DumbledoreCreator
 }
 
