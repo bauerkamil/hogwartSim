@@ -52,9 +52,7 @@ class Student{
 interface IPointGetter{
 +addPoints(String): void
 }
-abstract class PointGetter{
-+addPoints(String): void
-}
+
 class Teacher{
 +isTheSameHouse(String): boolean
 }
@@ -65,9 +63,8 @@ IGeneral <|-- General
 IRandomizable <|-- General
 IKill <|-- Basilisk
 'House *-- Wizard
-IPointGetter <|-- PointGetter
-PointGetter <|-- Teacher
-PointGetter <|-- Beer
+IPointGetter <|-- Teacher
+IPointGetter <|-- Beer
 General *-- ICreature
 ICreature <|-- Creature
 Creature <|-- Basilisk
