@@ -24,17 +24,19 @@ object "dumbledore: Dumbledore" as dumbledore{
 
 }
 object "student1: Student" as s1{
+    isAlive: 1
     house: Gryfffindor
     seed = 0
 }
 object "basilisk: Basilisk" as basilisk{
     seed = 0
 }
-object "teacher: Teacher" as teacher{
+object "teacher1: Teacher" as teacher{
     house: Gryffindor
     seed = 0
 }
-object "specialItem: Item" as item{
+object "butterbeer1: ButterBeer" as item{
+    isUsed: 1
     house: Gryffindor
     seed = 0
 }

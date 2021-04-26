@@ -35,14 +35,14 @@ package "hogwartSim.general" {
 '   -sortingHat(String): String
 '}
     interface IKill{
-        +kill(String): void
+        +kill(Student): void
     }
     class Basilisk{
         +Basilisk(String)
-        +kill(String): void
+        +kill(Student): void
     }
     interface IUseItem{
-        +drinkBeer(String): void
+        +useItem(Item): void
     }
     abstract class Wizard{
         #house: String
@@ -53,7 +53,8 @@ package "hogwartSim.general" {
         #isAlive: boolean
 
         +Student(String, String)
-        +drinkBeer(String): void
+        +useItem(Item): void
+        +die(): void
     }
     interface IPointGetter{
         +addPoints(String): void
@@ -63,20 +64,23 @@ package "hogwartSim.general" {
         +isTheSameHouse(String): boolean
         +addPoints(String): void
     }
-    class Beer{
+    abstract class Item{
         #isUsed: boolean
 
-        +Beer(String)
+        +Item(String)
+        +getUsed(): void
         +addPoints(String): void
-        'zgodnie z wykładem to klasa powinna deycdować sama o własnych wartościach
-        'czyli trzebaby przenieść metody kill i drink?
+    }
+    class ButterBeer{
+        +ButterBeer(String)
     }
 IGeneral <|-- General
 IRandomizable <|-- General
 IKill <|-- Basilisk
 'House *-- Wizard
 IPointGetter <|-- Teacher
-IPointGetter <|-- Beer
+IPointGetter <|-- Item
+Item <|-- ButterBeer
 General *-- ICreature
 ICreature <|-- Creature
 Creature <|-- Basilisk
@@ -85,7 +89,7 @@ Wizard <|-- Teacher
 Wizard <|-- Student
 IUseItem <|-- Student
 Student - Teacher
-Student - Beer
+Student - ButterBeer
 Student - Basilisk
 }
 @enduml

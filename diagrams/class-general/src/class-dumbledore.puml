@@ -5,7 +5,8 @@ skinparam classAttributeIconSize 0
 package hogwartSim.dumbledore{
     interface IDumbledore{
         - addsPoints(String): void
-        + declareWinner(String, int): String
+        + declareWinner(pointList): String
+       '+ declareWinner(String, int): String
     }
     class Dumbledore{
         +pointList: List<IPointGetter>
