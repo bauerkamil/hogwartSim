@@ -82,6 +82,7 @@ IPointGetter <|-- Teacher
 IPointGetter <|-- Item
 Item <|-- ButterBeer
 General *-- ICreature
+General *-- Item
 ICreature <|-- Creature
 Creature <|-- Basilisk
 Creature <|-- Wizard
