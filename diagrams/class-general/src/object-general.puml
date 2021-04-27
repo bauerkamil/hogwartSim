@@ -24,7 +24,7 @@ object "dumbledore: Dumbledore" as dumbledore{
 
 }
 object "student1: Student" as s1{
-    isAlive: 1
+    isAlive: True
     house: Gryfffindor
     seed = 0
 }
@@ -36,7 +36,7 @@ object "teacher1: Teacher" as teacher{
     seed = 0
 }
 object "butterbeer1: ButterBeer" as item{
-    isUsed: 1
+    isUsed: True
     house: Gryffindor
     seed = 0
 }
