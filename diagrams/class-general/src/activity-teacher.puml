@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+
+:Get sorted into a house;
+:Put teachers on the map;
+
+partition Running {
+    repeat
+        if (Has a student\nstepped on his position?) then (yes)
+            :Add points;
+        else (no)
+        endif
+
+        :Wait for teacher's turn;
+        partition Turn {
+            :Move to another location;
+            if (Is anything on  this position?) then (yes)
+                if (Is this a a student?) then (yes)
+                    :Add points;
+                else (no)
+                endif
+            else (no)
+            endif
+        }
+    repeat while (Number of iterations reached?) is (no)
+->yes;
+}
+
+stop
+
+@enduml

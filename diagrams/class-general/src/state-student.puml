@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/state-diagram
+
+
+[*] --> Initialised
+    Initialised: Get sorted into a house
+
+Initialised --> Checking: put on map
+    Checking: Check if #isAlive
+
+Checking --> Move: yes
+    Move: Change location
+Checking --> [*]: no
+
+}
+@enduml

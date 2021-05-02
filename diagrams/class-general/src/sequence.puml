@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+skinparam classAttributeIconSize 0
+'autonumber
+
+actor Actor
+participant Simulation
+participant "generalCreator:\nGeneralCreator" as generalCreator
+participant "mapCreator:\nMapCreator" as mapCreator
+participant "dumbledoreCreator:\nDumbledoreCreator" as dumbledoreCreator
+
+Actor -> Simulation: sets: space size, \n number of students \n and iterations
+
+@enduml

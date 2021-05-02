@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+
+partition Running {
+    repeat
+       :get, add up and remember the number of house points;
+    repeat while (Number of iterations reached?) is (no)
+    ->yes;
+    partition "Dumbledore's last turn" {
+        :Add 50 points to Gryfindor;
+        :Declare winner;
+    }
+}
+
+stop
+
+@enduml
