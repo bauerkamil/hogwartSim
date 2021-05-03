@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+skinparam maxMessageSize 125
+
+actor Actor
+
+Actor -> Simulation: Sets: space size, number of students and iterations
+Simulation -> MaraudersMap: Initialize and put objects on map
+
+    loop Until numIter is reached
+       Simulation -> General: Student's move
+       Simulation -> General: Teacher's move
+       Simulation -> General: Basilisk's move
+    end
+    ||||
+    Simulation -> Dumbledore: Dumbledore's last turn
+    Dumbledore -> Dumbledore: Add 50 points to Gryffindor
+    Dumbledore -> Simulation: Get winner
+
+Simulation -> Actor: Give results
+@enduml

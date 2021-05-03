@@ -1,13 +1,13 @@
 @startuml
 'https://plantuml.com/activity-diagram-beta
-
+skinparam maxMessageSize 50
 start
 
 :Put basilisks on the map;
 
 partition Running {
     repeat
-        if (Has a student\nstepped on his position?) then (yes)
+        if (Has a student stepped on his position?) then (yes)
             :Kill the student;
         else (no)
         endif
@@ -15,7 +15,7 @@ partition Running {
         :Wait for basilisk's turn;
         partition Turn {
             :Move to another location;
-            if (Is anything on  this position?) then (yes)
+            if (Map checks if anything is on this position?) then (yes)
                 if (Is this a a student?) then (yes)
                     :Kill the student;
                 else (no)

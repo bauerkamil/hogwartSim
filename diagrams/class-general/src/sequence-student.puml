@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+skinparam maxMessageSize 100
+'autonumber
+
+
+[-> General: Student's move
+activate General
+General -> General: Generate random location to move
+
+General -> Student: Move
+activate Student
+activate Student #DarkSalmon
+Student -> MaraudersMap: Change position
+activate MaraudersMap
+MaraudersMap -> MaraudersMap: Check position
+alt Student on same position as basilsk
+        MaraudersMap -> Basilisk: Student on same position
+        activate Basilisk
+        Basilisk -> Student: Kill
+        deactivate Basilisk
+        Student -> Student!!: Get killed
+        'destroy Student
+else Student on same position as teacher
+         MaraudersMap -> Teacher: Student on same position
+         activate Teacher
+         Teacher -> Dumbledore: Add points
+         deactivate Teacher
+else Student on same position as item
+    MaraudersMap -> Student: Item on same position
+    Student -> Beer: Use item
+    activate Beer
+    Beer -> Dumbledore: Add points
+    Beer -> Beer!!: Get used
+end
+MaraudersMap -> Student: Done
+deactivate MaraudersMap
+Student -> General: Done
+deactivate Student
+<- General: Done
+deactivate General
+'General -> General: Generate random location to move
+'General -> Teacher: Move
+
+'end
+
+@enduml
