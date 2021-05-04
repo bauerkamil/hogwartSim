@@ -19,8 +19,8 @@ alt Student on same position as basilsk
         activate Basilisk
         Basilisk -> Student: Kill
         deactivate Basilisk
-        Student -> Student!!: Get killed
-        'destroy Student
+        Student -> Student: Get killed
+        destroy Student
 else Student on same position as teacher
          MaraudersMap -> Teacher: Student on same position
          activate Teacher
@@ -39,9 +39,6 @@ Student -> General: Done
 deactivate Student
 <- General: Done
 deactivate General
-'General -> General: Generate random location to move
-'General -> Teacher: Move
 
-'end
 
 @enduml

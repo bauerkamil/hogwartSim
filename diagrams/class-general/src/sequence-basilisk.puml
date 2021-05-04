@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+skinparam maxMessageSize 100
+'autonumber
+
+
+[-> General: Student's move
+activate General
+General -> General: Generate random location to move
+
+General -> Basilisk: Move
+activate Basilisk
+Basilisk -> MaraudersMap: Change position
+activate MaraudersMap
+MaraudersMap -> MaraudersMap: Check position
+alt Student on same position as basilsk
+        MaraudersMap -> Basilisk: Student on same position
+        activate Basilisk
+        Basilisk -> Student: Kill
+        deactivate Basilisk
+        activate Student
+        Student -> Student: Get killed
+        destroy Student
+
+end
+MaraudersMap -> Basilisk: Done
+deactivate MaraudersMap
+Basilisk -> General: Done
+deactivate Basilisk
+<- General: Done
+deactivate General
+@enduml

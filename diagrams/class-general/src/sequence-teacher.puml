@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+skinparam maxMessageSize 100
+'autonumber
+
+
+[-> General: Teacher's move
+activate General
+General -> General: Generate random location to move
+
+General -> Teacher: Move
+activate Teacher
+Teacher -> MaraudersMap: Change position
+activate MaraudersMap
+MaraudersMap -> MaraudersMap: Check position
+
+alt Student on same position as teacher
+         MaraudersMap -> Teacher: Teacher on same position
+         activate Teacher
+         Teacher -> Dumbledore: Add points
+         deactivate Teacher
+end
+MaraudersMap -> Teacher: Done
+deactivate MaraudersMap
+Teacher -> General: Done
+deactivate Teacher
+<- General: Done
+deactivate General
+@enduml
