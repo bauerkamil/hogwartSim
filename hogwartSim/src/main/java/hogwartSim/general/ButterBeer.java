@@ -1,4 +1,4 @@
 package hogwartSim.general;
 
-public class ButterBeer extends hogwartSim.general.Item {
+public class ButterBeer extends Item {
 }

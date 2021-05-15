@@ -1,4 +1,8 @@
 package hogwartSim.general;
 
-public abstract class Creature implements hogwartSim.general.ICreature {
+public abstract class Creature implements ICreature {
+
+    public void move() {
+
+    }
 }
