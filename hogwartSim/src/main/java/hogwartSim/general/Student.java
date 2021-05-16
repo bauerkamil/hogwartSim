@@ -1,4 +1,4 @@
 package hogwartSim.general;
 
-public class Student extends hogwartSim.general.Wizard implements hogwartSim.general.IUseItem {
+public class Student extends Wizard implements IUseItem {
 }

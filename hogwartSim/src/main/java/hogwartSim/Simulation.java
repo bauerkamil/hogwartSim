@@ -20,8 +20,16 @@ public class Simulation {
         map = IMapCreator.createMap(this.mapSize);
         rnd = new Random(seed);
         creatureList = generalCreator.createCreatures(map);
+
+    }
+
+    public void runSimulation() {
+
+        /**
+         * repeat cycles until maximum number of iterations is reached
+         */
         for (int cycleNumber = 0; cycleNumber < maxIter; cycleNumber++) {
-            //while (!map.settleSpecimen(specList.get(i), rnd.nextInt(map.getSize()))) ;
+
         }
     }
 

@@ -1,4 +1,4 @@
 package hogwartSim.general;
 
-public abstract class Wizard extends hogwartSim.general.Creature  {
+public abstract class Wizard extends Creature  {
 }

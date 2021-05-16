@@ -1,4 +1,6 @@
 package hogwartSim.general;
 
-public class Teacher extends hogwartSim.general.Wizard implements hogwartSim.general.IPointGetter {
+public class Teacher extends Wizard implements IPointGetter {
+    public static void addPoints(Student student1) {
+    }
 }
