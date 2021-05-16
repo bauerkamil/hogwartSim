@@ -22,7 +22,7 @@ public class Simulation {
         map = IMapCreator.createMap();
 
         rnd = new Random(seed);
-        creatureList = generalCreator.createCreatures(map);
+        creatureList = generalCreator.createCreatures();
 
         this.maxIter = maxIter;
     }
@@ -42,10 +42,13 @@ public class Simulation {
         }
     }
     public static void main(String[] args){
+
         MapCreator mapCreat = new MapCreator(10);
         IGeneralCreator generalCreat = new GeneralCreator(8, 4);
         Simulation sim = new Simulation(mapCreat, generalCreat, 1, 20);
+
         sim.runSimulation();
+
         System.out.println("END");
     }
 

@@ -6,5 +6,5 @@ import hogwartSim.map.IMap;
 import java.util.List;
 
 public interface IGeneralCreator {
-    List<ICreature> createCreatures(IMap map);
+    List<ICreature> createCreatures();
 }
