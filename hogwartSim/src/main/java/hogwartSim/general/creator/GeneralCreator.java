@@ -21,7 +21,7 @@ public class GeneralCreator implements IGeneralCreator{
         List<ICreature> creatureList = new LinkedList<>();
 
         for(int i = 0; i<numStudents; i++)
-            creatureList.add(new Student(map));
+            creatureList.add(new Student(sortingHat()));
 
         return creatureList;
     }

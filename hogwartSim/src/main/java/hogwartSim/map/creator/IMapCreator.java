@@ -4,8 +4,6 @@ import hogwartSim.map.IMap;
 
 public interface IMapCreator {
 
-    static IMap createMap() {
-        return null;
-    }
+    public IMap createMap();
 
 }
