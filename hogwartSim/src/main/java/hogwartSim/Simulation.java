@@ -12,10 +12,12 @@ public class Simulation {
     private IMap map;
     private Random rnd;
     private List<ICreature> creatureList;
+    private final int mapSize;
     private int maxIter;
 
-    public Simulation (hogwartSim.map.creator.IMapCreator mapCreator, IGeneralCreator generalCreator, long seed, int maxIter) {
-        map = IMapCreator.createMap();
+    public Simulation(IMapCreator mapCreator, IGeneralCreator generalCreator, long seed, int maxIter, int mapSize) {
+        this.mapSize = mapSize;
+        map = IMapCreator.createMap(this.mapSize);
         rnd = new Random(seed);
         creatureList = generalCreator.createCreatures(map);
         for (int cycleNumber = 0; cycleNumber < maxIter; cycleNumber++) {

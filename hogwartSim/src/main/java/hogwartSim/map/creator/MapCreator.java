@@ -4,13 +4,16 @@ import hogwartSim.map.IMap;
 import hogwartSim.map.MarudersMap;
 
 public class MapCreator implements IMapCreator {
+    int mapSize;
 
-    int mapSize =10;
-    public MapCreator(int mapSize) {
-        this.mapSize=mapSize;
+    public int getMapSize() {
+        return mapSize;
     }
 
-    @Override
+    public void setMapSize(int mapSize) {
+        this.mapSize = mapSize;
+    }
+
     public IMap createMap(int mapSize) {
         return (IMap) new MarudersMap(mapSize);
     }
