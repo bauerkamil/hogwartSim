@@ -43,7 +43,7 @@ public class Simulation {
     }
     public static void main(String[] args){
 
-        MapCreator mapCreat = new MapCreator(10);
+        MapCreator mapCreat = new MapCreator(10, 20);
         IGeneralCreator generalCreat = new GeneralCreator(8, 4);
         Simulation sim = new Simulation(mapCreat, generalCreat, 1, 20);
 

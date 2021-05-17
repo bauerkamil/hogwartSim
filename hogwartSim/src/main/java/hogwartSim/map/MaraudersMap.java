@@ -1,25 +1,31 @@
 package hogwartSim.map;
 
 import hogwartSim.general.ICreature;
-import hogwartSim.interactions.InteractionAgent;
 
-import java.awt.geom.Point2D;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class MaraudersMap implements IMap {
 
 
     protected Random rnd;
-    protected long seed = 0;
+    protected long seed;
+    protected int mapSize;
     private ICreature[] creatures;
-    private Map<ICreature, Point2D.Double> creaturePosition;
+    private Map<ICreature, Point2d> creaturePosition;
 
-    public MaraudersMap(int mapSize){
+    public MaraudersMap(int mapSize, long seed){
+        this.mapSize = mapSize;
+        this.seed=seed;
+        rnd.setSeed(seed);
+        this.rnd = new Random(seed);
         creatures = new ICreature[mapSize];
         creaturePosition=new HashMap<>();
     }
 
     public void changePosition(ICreature creature) {
+        int positionX = rnd.nextInt(mapSize);
 
     }
     public ICreature checkPosition(ICreature givenCreature){

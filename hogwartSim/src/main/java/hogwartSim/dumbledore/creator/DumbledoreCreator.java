@@ -1,10 +1,13 @@
 package hogwartSim.dumbledore.creator;
 
-public class DumbledoreCreator implements IDumbledore {
+import hogwartSim.dumbledore.Dumbledore;
 
-@Override
-    public createDumbledore() {
-        return new Dumbledore();
+
+public class DumbledoreCreator implements IDumbledoreCreator {
+
+
+    public DumbledoreCreator() {
+
     }
 
 }

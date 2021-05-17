@@ -1,4 +1,4 @@
 package hogwartSim.general;
 
-public interface IUseItem {
+public interface IItem {
 }
