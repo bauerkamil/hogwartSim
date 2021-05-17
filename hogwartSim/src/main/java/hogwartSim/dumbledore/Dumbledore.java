@@ -23,7 +23,7 @@ public class Dumbledore implements IDumbledore {
                 break;
             }
             default:
-                throw new IllegalStateException("Unexpected value: " + house);
+                throw new IllegalStateException("Unexpected house value in addPoints: " + house);
         }
     }
 

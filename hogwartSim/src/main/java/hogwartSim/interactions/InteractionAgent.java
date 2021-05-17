@@ -42,6 +42,7 @@ public class InteractionAgent {
         /**
          * check for items...
          */
+        IItem item = maraudersMap.checkItemPosition(student1);
     }
     public static void teacherAction(ICreature teacher1, IMap maraudersMap){
         /**
