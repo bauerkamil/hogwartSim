@@ -7,5 +7,5 @@ public interface IMap {
     public void changePosition(ICreature creature);
     public ICreature checkPosition(ICreature givenCreature);
 
-    public IItem checkItemPosition(ICreature student1);
+    public IItem checkForItemPosition(ICreature student1);
 }

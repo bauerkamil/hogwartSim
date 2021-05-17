@@ -4,7 +4,6 @@ import hogwartSim.general.ICreature;
 import hogwartSim.general.IItem;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
 
@@ -15,9 +14,9 @@ public class MaraudersMap implements IMap {
     protected long seed;
     private int mapSize;
     private ICreature[] creatures;
-    private Map<ICreature, Point2d> creaturePosition;
+    private Map<ICreature, PositionXY> creaturePosition;
     private IItem[] items;
-    private Map<IItem, Point2d> itemPosition;
+    private Map<IItem, PositionXY> itemPosition;
 
     public MaraudersMap(int mapSize, long seed){
 
@@ -27,26 +26,35 @@ public class MaraudersMap implements IMap {
         rnd.setSeed(seed);
         this.rnd = new Random(seed);
         /**
-         * create movable creatures and a map to remember their positions
+         * create table for movable creatures and a map to remember their positions
          * JAKA WIELKOŚĆ TABLICY?? (dwie kreatury mogą się pojawić na tym samym polu)
+         * Jest ona w ogóle potrzebna?
          */
         creatures = new ICreature[mapSize];
-        creaturePosition = new HashMap<ICreature, Point2d>();
+        creaturePosition = new HashMap<ICreature, PositionXY>();
         /**
-         * create non-movable items (different type than ICreatures)
+         * create table for 4 non-movable items (different type than ICreature)
          */
         items = new IItem[4];
-        itemPosition = new HashMap<IItem, Point2d>();
+        itemPosition = new HashMap<IItem, PositionXY>();
     }
 
     public void changePosition(ICreature creature) {
+        /**
+         * randomize 2D position within map range
+         */
         int positionX = rnd.nextInt(mapSize);
         int positionY = rnd.nextInt(mapSize);
+        /**
+         * change the position of @param creature
+          */
+        creaturePosition.put(creature, new PositionXY(positionX, positionY));
+
 
     }
     public ICreature checkPosition(ICreature givenCreature){
         /**
-         * iterate over each givenCreature on the map
+         * iterate over each creature on the map
          */
         for(ICreature iCreature : creaturePosition.keySet()){
             /**
@@ -59,9 +67,9 @@ public class MaraudersMap implements IMap {
         }
         return null;
     }
-    public IItem checkItemPosition(ICreature givenCreature){
+    public IItem checkForItemPosition(ICreature givenCreature){
         /**
-         * iterate over each givenCreature on the map
+         * iterate over each item on the map
          */
         for(IItem iitem : itemPosition.keySet()){
             /**

@@ -3,6 +3,7 @@ package hogwartSim.dumbledore;
 public class Dumbledore implements IDumbledore {
     private int[] houses = new int[4];
 
+    @Override
     public void addPoints(String house, int points) {
 
         switch (house) {
@@ -35,25 +36,28 @@ public class Dumbledore implements IDumbledore {
             if (max <= houses[i]) {
                 max = houses[i];
             }
+        }
             switch (max) {
                 case houses[0]: {
                     System.out.println("Puchar zdobywa Gryffindor");
                     break;
                 }
-                case houses[0]: {
+                case houses[1]: {
                     System.out.println("Puchar zdobywa Slytherin");
                     break;
                 }
-                case houses[0]: {
+                case houses[2]: {
                     System.out.println("Puchar zdobywa Ravenclaw");
                     break;
                 }
-                case houses[0]: {
+                case houses[3]: {
                     System.out.println("Puchar zdobywa Hufflepuff");
                     break;
                 }
+                default:
+                    throw new IllegalStateException("Unexpected value: " + max);
             }
-        }
+
 
         return null;
     }
