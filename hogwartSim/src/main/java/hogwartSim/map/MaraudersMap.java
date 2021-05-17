@@ -1,11 +1,12 @@
 package hogwartSim.map;
 
 import hogwartSim.general.ICreature;
+import hogwartSim.interactions.InteractionAgent;
 
 import java.awt.geom.Point2D;
 import java.util.*;
 
-public class MarudersMap implements IMap {
+public class MaraudersMap implements IMap {
 
 
     protected Random rnd;
@@ -13,12 +14,12 @@ public class MarudersMap implements IMap {
     private ICreature[] creatures;
     private Map<ICreature, Point2D.Double> creaturePosition;
 
-    public MarudersMap(int mapSize){
+    public MaraudersMap(int mapSize){
         creatures = new ICreature[mapSize];
         creaturePosition=new HashMap<>();
     }
 
-    public static void changePosition(ICreature creature) {
+    public void changePosition(ICreature creature) {
 
     }
     public ICreature checkPosition(ICreature givenCreature){

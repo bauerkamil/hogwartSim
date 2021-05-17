@@ -4,9 +4,10 @@ import hogwartSim.map.IMap;
 
 public class Student extends Wizard implements IUseItem {
 
+    protected IMap map;
     protected String house;
 
-    public Student(String house) {
-        super(house);
+    public Student(IMap map, String house) {
+        super(map, house);
     }
 }

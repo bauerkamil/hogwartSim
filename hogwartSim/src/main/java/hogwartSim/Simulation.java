@@ -19,10 +19,10 @@ public class Simulation {
     private final int maxIter;
 
     public Simulation(IMapCreator mapCreator, IGeneralCreator generalCreator, long seed, int maxIter) {
-        map = IMapCreator.createMap();
+        map = mapCreator.createMap();
 
         rnd = new Random(seed);
-        creatureList = generalCreator.createCreatures();
+        creatureList = generalCreator.createCreatures(map);
 
         this.maxIter = maxIter;
     }

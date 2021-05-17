@@ -1,11 +1,13 @@
 package hogwartSim.general;
 
-public class Teacher extends Wizard implements IPointGetter {
+import hogwartSim.map.IMap;
 
+public class Teacher extends Wizard implements IPointGetter {
+    protected IMap map;
     protected String house;
 
-    public Teacher(String house) {
-        super(house);
+    public Teacher(IMap map, String house) {
+        super(map, house);
     }
 
     public static void addPoints(Student student1) {

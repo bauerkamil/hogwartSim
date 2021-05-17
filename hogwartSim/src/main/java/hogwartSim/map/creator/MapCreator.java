@@ -1,7 +1,7 @@
 package hogwartSim.map.creator;
 
 import hogwartSim.map.IMap;
-import hogwartSim.map.MarudersMap;
+import hogwartSim.map.MaraudersMap;
 
 public class MapCreator implements IMapCreator {
      final int mapSize;
@@ -11,6 +11,6 @@ public class MapCreator implements IMapCreator {
     }
 
     public IMap createMap() {
-        return new MarudersMap(mapSize);
+        return new MaraudersMap(mapSize);
     }
 }

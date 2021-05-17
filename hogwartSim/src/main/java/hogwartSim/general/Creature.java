@@ -1,12 +1,17 @@
 package hogwartSim.general;
 
 import hogwartSim.interactions.InteractionAgent;
-import hogwartSim.map.MarudersMap;
+import hogwartSim.map.IMap;
+import hogwartSim.map.MaraudersMap;
 
 public abstract class Creature implements ICreature {
+    protected IMap map;
+    public Creature(IMap map){
+        this.map=map;
+    }
 
     public void move() {
-        MarudersMap.changePosition(this);
-        InteractionAgent.action(this);
+        map.changePosition(this);
+        InteractionAgent.action(this, map);
     }
 }

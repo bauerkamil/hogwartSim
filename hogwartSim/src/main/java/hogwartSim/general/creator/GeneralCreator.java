@@ -4,6 +4,7 @@ import hogwartSim.general.Basilisk;
 import hogwartSim.general.ICreature;
 import hogwartSim.general.Student;
 import hogwartSim.general.Teacher;
+import hogwartSim.map.IMap;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -18,21 +19,21 @@ public class GeneralCreator implements IGeneralCreator{
     }
 
     @Override
-    public List<ICreature> createCreatures() {
+    public List<ICreature> createCreatures(IMap map) {
         List<ICreature> creatureList = new LinkedList<>();
         /**
          * create one basilisk
          */
-        creatureList.add(new Basilisk());
+        creatureList.add(new Basilisk(map));
 
         /**
          * create a number of students and teachers with a house sorted
          */
         for(int i = 0; i<numStudents; i++)
-            creatureList.add(new Student(sortingHat(i)));
+            creatureList.add(new Student(map, sortingHat(i)));
 
         for(int i = 0; i<numTeachers; i++)
-            creatureList.add(new Teacher(sortingHat(i)));
+            creatureList.add(new Teacher(map, sortingHat(i)));
 
         return creatureList;
     }
