@@ -2,7 +2,7 @@ package hogwartSim.map;
 
 public class PositionXY {
     /**
-     * this class is for generatind 2 dimensions in map
+     * this class is for generating 2 dimensions in map
      */
     int x;
     int y;

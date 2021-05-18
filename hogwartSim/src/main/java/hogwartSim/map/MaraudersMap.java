@@ -39,6 +39,7 @@ public class MaraudersMap implements IMap {
         itemPosition = new HashMap<IItem, PositionXY>();
     }
 
+
     public void changePosition(ICreature creature) {
         /**
          * randomize 2D position within map range
@@ -51,6 +52,17 @@ public class MaraudersMap implements IMap {
         creaturePosition.put(creature, new PositionXY(positionX, positionY));
 
 
+    }
+    public void changeItemPosition(IItem item) {
+        /**
+         * randomize 2D position within map range
+         */
+        int positionX = rnd.nextInt(mapSize);
+        int positionY = rnd.nextInt(mapSize);
+        /**
+         * change the position of @param creature
+         */
+        itemPosition.put(item, new PositionXY(positionX, positionY));
     }
     public ICreature checkPosition(ICreature givenCreature){
         /**

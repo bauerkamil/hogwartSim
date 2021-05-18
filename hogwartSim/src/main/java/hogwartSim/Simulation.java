@@ -32,6 +32,16 @@ public class Simulation {
         this.maxIter = maxIter;
     }
 
+    /**
+     * put creatures and items on the map
+     */
+    for (int i=0; i<creatureList.size(); i++) {
+        map.changePosition(creatureList.get(i));
+    }
+    for(int j=0; i<itemList; j++) {
+        map.changeItemPosition(itemList.get(i));
+    }
+
     public void runSimulation() {
 
         /**
