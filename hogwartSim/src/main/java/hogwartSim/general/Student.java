@@ -6,10 +6,11 @@ public class Student extends Wizard {
 
     protected IMap map;
     protected String house;
-    private boolean isAlive = true;
+    private boolean isAlive;
 
     public Student(IMap map, String house) {
         super(map, house);
+        this.isAlive = true;
     }
 
     public boolean getIsAlive(){return this.isAlive;}

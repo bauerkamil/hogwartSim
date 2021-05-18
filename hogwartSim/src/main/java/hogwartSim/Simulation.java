@@ -5,8 +5,10 @@ import hogwartSim.dumbledore.creator.DumbledoreCreator;
 import hogwartSim.dumbledore.creator.IDumbledoreCreator;
 import hogwartSim.general.ICreature;
 import hogwartSim.general.IItem;
-import hogwartSim.general.creator.GeneralCreator;
-import hogwartSim.general.creator.IGeneralCreator;
+import hogwartSim.general.creator.CreatureCreator;
+import hogwartSim.general.creator.ICreatureCreator;
+import hogwartSim.general.creator.IItemCreator;
+import hogwartSim.general.creator.ItemCreator;
 import hogwartSim.map.IMap;
 import hogwartSim.map.creator.IMapCreator;
 import hogwartSim.map.creator.MapCreator;
@@ -22,24 +24,28 @@ public class Simulation {
     private List<IItem> itemList;
     private final int maxIter;
 
-    public Simulation(IMapCreator mapCreator, IGeneralCreator generalCreator, IDumbledoreCreator dumbledoreCreator, long seed, int maxIter) {
+    public Simulation(IMapCreator mapCreator, ICreatureCreator creatureCreator, IItemCreator itemCreator, IDumbledoreCreator dumbledoreCreator, long seed, int maxIter) {
         map = mapCreator.createMap();
         dumbledore = dumbledoreCreator.createDumbledore();
 
+        //rnd.setSeed(seed);
         rnd = new Random(seed);
-        creatureList = generalCreator.createCreatures(map);
+        creatureList = creatureCreator.createCreatures(map);
+
+        itemList = itemCreator.createItems(map);
 
         this.maxIter = maxIter;
-    }
 
-    /**
-     * put creatures and items on the map
-     */
-    for (int i=0; i<creatureList.size(); i++) {
-        map.changePosition(creatureList.get(i));
-    }
-    for(int j=0; i<itemList; j++) {
-        map.changeItemPosition(itemList.get(i));
+
+        /**
+         * put creatures and items on the map
+         */
+        for (int i = 0; i < creatureList.size(); i++) {
+            map.changePosition(creatureList.get(i));
+        }
+        for (int j = 0; j < itemList.size(); j++) {
+            map.changeItemPosition(itemList.get(j));
+        }
     }
 
     public void runSimulation() {
@@ -64,10 +70,11 @@ public class Simulation {
 
     public static void main(String[] args){
 
-        MapCreator mapCreat = new MapCreator(10, 20);
-        IGeneralCreator generalCreat = new GeneralCreator(8, 4);
-        IDumbledoreCreator dumbledoreCreat = new DumbledoreCreator();
-        Simulation sim = new Simulation(mapCreat, generalCreat, dumbledoreCreat, 1, 20);
+        MapCreator mapCreator = new MapCreator(10, 20);
+        ICreatureCreator creatureCreator = new CreatureCreator(8, 4);
+        IItemCreator itemCreator = new ItemCreator(5);
+        IDumbledoreCreator dumbledoreCreator = new DumbledoreCreator();
+        Simulation sim = new Simulation(mapCreator, creatureCreator, itemCreator, dumbledoreCreator, 1, 20);
 
         sim.runSimulation();
 

@@ -9,11 +9,12 @@ import hogwartSim.map.IMap;
 import java.util.LinkedList;
 import java.util.List;
 
-public class GeneralCreator implements IGeneralCreator{
+public class CreatureCreator implements ICreatureCreator {
 
     protected int numStudents;
     protected int numTeachers;
-    public GeneralCreator(int numStudents, int numTeachers){
+
+    public CreatureCreator(int numStudents, int numTeachers){
         this.numStudents = numStudents;
         this.numTeachers = numTeachers;
     }

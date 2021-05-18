@@ -35,7 +35,7 @@ public class MaraudersMap implements IMap {
         /**
          * create table for 4 non-movable items (different type than ICreature)
          */
-        items = new IItem[4];
+        items = new IItem[mapSize];
         itemPosition = new HashMap<IItem, PositionXY>();
     }
 
