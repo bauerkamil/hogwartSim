@@ -37,27 +37,23 @@ public class Dumbledore implements IDumbledore {
      */
 
 
-    public String declareWinner(int[] houses) {
+    public void declareWinner(int[] houses) {
         addPoints("Gryffindor", 50);
         int max = houses[0];
         for (int i = 0; i < 4; i++) {
-            if (max <= houses[i]) {
+            if (max < houses[i]) {
                 max = houses[i];
             }
-            if (max==houses[0]) {
-                System.out.println("Gryffindor wins the House Cup");
-            }
-            else if (max==houses[1]) {
-                System.out.println("Ravenclaw wins the House Cup");
-            }
-            else if (max==houses[2]) {
-                System.out.println("Ravenclaw wins the House Cup");
-            }
-            else {
-                System.out.println("Hufflepuff wins the House Cup");
-            }
+        }
+        if (max == houses[0]) {
+            System.out.println("Gryffindor wins the House Cup");
+        } else if (max == houses[1]) {
+            System.out.println("Ravenclaw wins the House Cup");
+        } else if (max == houses[2]) {
+            System.out.println("Ravenclaw wins the House Cup");
+        } else {
+            System.out.println("Hufflepuff wins the House Cup");
+        }
 
-
-        return null;
     }
 }

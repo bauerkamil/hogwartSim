@@ -4,5 +4,5 @@ public interface IDumbledore {
 
     public void addPoints(String house, int points);
 
-    public String declareWinner(int[] houses);
+    public void declareWinner(int[] houses);
 }
