@@ -2,5 +2,5 @@ package hogwartSim.general;
 
 
 public interface ICreature {
-    void move();
+    public void move();
 }

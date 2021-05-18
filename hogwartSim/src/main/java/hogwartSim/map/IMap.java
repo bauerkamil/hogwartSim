@@ -8,4 +8,7 @@ public interface IMap {
     public ICreature checkPosition(ICreature givenCreature);
 
     public IItem checkForItemPosition(ICreature student1);
+
+    public void removeFromMap(ICreature creatureToRemove);
+    public void removeItemFromMap(IItem itemToRemove);
 }

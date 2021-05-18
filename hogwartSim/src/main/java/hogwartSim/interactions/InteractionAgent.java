@@ -25,9 +25,17 @@ public class InteractionAgent {
             throw new IllegalArgumentException("The class of @param creature1 hasn't been specified in action - Interaction Agent");
 
     }
+
+    /**
+     * following specific actions check class of the objects before casting them to their classes
+     */
+
+
     public static void studentAction(ICreature student1, IMap maraudersMap){
         /**
          * check position on map for other creatures
+         * Each creature can interact with just one other creature
+         * (e.g. if there is a basilisk, a student and a teacher on the same position, the student will only interact with the basilisk)
          */
         ICreature creature2 = maraudersMap.checkPosition(student1);
         /**
@@ -35,14 +43,18 @@ public class InteractionAgent {
         * or if creature2 is a basilisk activate basilisk to kill the student
         */
         if(creature2.getClass() == Teacher.class)
-            Teacher.addPoints((Student) student1);
+            ((Teacher)creature2).changePointNumber((Student) student1);
 
         else if(creature2.getClass() == Basilisk.class)
             ((Basilisk) creature2).kill((Student) student1);
         /**
-         * check for items...
+         * if the student is alive (can be killed by basilisk beforehand) check for items and
          */
-        IItem item = maraudersMap.checkItemPosition(student1);
+        if (((Student)student1).getIsAlive()){
+            IItem item = maraudersMap.checkForItemPosition(student1);
+            ((Student)student1).use(item);
+        }
+
     }
     public static void teacherAction(ICreature teacher1, IMap maraudersMap){
         /**
@@ -53,7 +65,7 @@ public class InteractionAgent {
          * if creature2 is a student activate teacher to give points
          */
         if(creature2.getClass() == Student.class)
-            Teacher.addPoints((Student) creature2);
+            ((Teacher)creature2).changePointNumber((Student) creature2);
 
     }
     public static void basiliskAction(ICreature basilisk1, IMap maraudersMap){

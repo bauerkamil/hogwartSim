@@ -44,6 +44,8 @@ public class Dumbledore implements IDumbledore {
             if (max <= houses[i]) {
                 max = houses[i];
             }
+        }
+
             if (max==houses[0]) {
                 System.out.println("Gryffindor wins the House Cup");
             }

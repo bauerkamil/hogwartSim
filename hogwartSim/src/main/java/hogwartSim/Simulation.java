@@ -1,7 +1,7 @@
 package hogwartSim;
 
 import hogwartSim.general.ICreature;
-import hogwartSim.general.Item;
+import hogwartSim.general.IItem;
 import hogwartSim.general.creator.GeneralCreator;
 import hogwartSim.general.creator.IGeneralCreator;
 import hogwartSim.map.IMap;
@@ -15,7 +15,7 @@ public class Simulation {
     private IMap map;
     private Random rnd;
     private List<ICreature> creatureList;
-    private List<Item> itemList;
+    private List<IItem> itemList;
     private final int maxIter;
 
     public Simulation(IMapCreator mapCreator, IGeneralCreator generalCreator, long seed, int maxIter) {
@@ -40,7 +40,12 @@ public class Simulation {
                 iCreature.move();
             }
         }
+
     }
+    public void removeFromCreatureList(ICreature creatureToRemove){
+        creatureList.remove(creatureToRemove);
+    }
+
     public static void main(String[] args){
 
         MapCreator mapCreat = new MapCreator(10, 20);

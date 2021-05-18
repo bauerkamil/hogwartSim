@@ -10,6 +10,9 @@ public class Teacher extends Wizard implements IPointGetter {
         super(map, house);
     }
 
-    public static void addPoints(Student student1) {
+
+    public void changePointNumber(Student student1) {
     }
+
+
 }

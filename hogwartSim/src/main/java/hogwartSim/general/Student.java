@@ -6,17 +6,24 @@ public class Student extends Wizard {
 
     protected IMap map;
     protected String house;
-    protected boolean isAlive = true;
+    private boolean isAlive = true;
 
     public Student(IMap map, String house) {
         super(map, house);
     }
 
-    public void useItem(IItem itemToUse){
+    public boolean getIsAlive(){return this.isAlive;}
 
+    public String getHouse() {
+        return house;
     }
 
-    public void getKilled(){
+    public void die(){
         this.isAlive = false;
+    }
+
+    public void use(IItem item) {
+        item.getUsed();
+        map.removeItemFromMap(item);
     }
 }

@@ -84,4 +84,11 @@ public class MaraudersMap implements IMap {
 
         return null;
     }
+
+    public void removeFromMap(ICreature creatureToRemove) {
+        creaturePosition.remove(creatureToRemove);
+    }
+    public void removeItemFromMap(IItem itemToRemove){
+        itemPosition.remove(itemToRemove);
+    }
 }

@@ -1,5 +1,5 @@
 package hogwartSim.general;
 
 public interface IItem {
-    void getUsed();
+    public void getUsed();
 }
