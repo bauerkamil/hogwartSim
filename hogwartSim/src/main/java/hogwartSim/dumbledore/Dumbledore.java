@@ -3,6 +3,10 @@ package hogwartSim.dumbledore;
 public class Dumbledore implements IDumbledore {
     private int[] houses = new int[4];
 
+    /**
+     * add points to a house
+     */
+
     @Override
     public void addPoints(String house, int points) {
 
@@ -28,6 +32,10 @@ public class Dumbledore implements IDumbledore {
         }
     }
 
+    /**
+     * add 50 points to Gryffindor and check which house has the most points
+     */
+
 
     public String declareWinner(int[] houses) {
         addPoints("Gryffindor", 50);
@@ -36,26 +44,17 @@ public class Dumbledore implements IDumbledore {
             if (max <= houses[i]) {
                 max = houses[i];
             }
-        }
-            switch (max) {
-                case houses[0]: {
-                    System.out.println("Puchar zdobywa Gryffindor");
-                    break;
-                }
-                case houses[1]: {
-                    System.out.println("Puchar zdobywa Slytherin");
-                    break;
-                }
-                case houses[2]: {
-                    System.out.println("Puchar zdobywa Ravenclaw");
-                    break;
-                }
-                case houses[3]: {
-                    System.out.println("Puchar zdobywa Hufflepuff");
-                    break;
-                }
-                default:
-                    throw new IllegalStateException("Unexpected value: " + max);
+            if (max==houses[0]) {
+                System.out.println("Gryffindor wins the House Cup");
+            }
+            else if (max==houses[1]) {
+                System.out.println("Ravenclaw wins the House Cup");
+            }
+            else if (max==houses[2]) {
+                System.out.println("Ravenclaw wins the House Cup");
+            }
+            else {
+                System.out.println("Hufflepuff wins the House Cup");
             }
 
 
