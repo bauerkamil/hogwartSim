@@ -37,7 +37,7 @@ public class Dumbledore implements IDumbledore {
      */
 
 
-    public void declareWinner(int[] houses) {
+    public void declareWinner() {
         addPoints("Gryffindor", 50);
         int max = houses[0];
         for (int i = 0; i < 4; i++) {

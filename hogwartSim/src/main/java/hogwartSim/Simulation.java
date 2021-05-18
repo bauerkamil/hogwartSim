@@ -1,5 +1,8 @@
 package hogwartSim;
 
+import hogwartSim.dumbledore.IDumbledore;
+import hogwartSim.dumbledore.creator.DumbledoreCreator;
+import hogwartSim.dumbledore.creator.IDumbledoreCreator;
 import hogwartSim.general.ICreature;
 import hogwartSim.general.IItem;
 import hogwartSim.general.creator.GeneralCreator;
@@ -13,13 +16,15 @@ import java.util.Random;
 
 public class Simulation {
     private IMap map;
+    private IDumbledore dumbledore;
     private Random rnd;
     private List<ICreature> creatureList;
     private List<IItem> itemList;
     private final int maxIter;
 
-    public Simulation(IMapCreator mapCreator, IGeneralCreator generalCreator, long seed, int maxIter) {
+    public Simulation(IMapCreator mapCreator, IGeneralCreator generalCreator, IDumbledoreCreator dumbledoreCreator, long seed, int maxIter) {
         map = mapCreator.createMap();
+        dumbledore = dumbledoreCreator.createDumbledore();
 
         rnd = new Random(seed);
         creatureList = generalCreator.createCreatures(map);
@@ -40,6 +45,7 @@ public class Simulation {
                 iCreature.move();
             }
         }
+        dumbledore.declareWinner();
 
     }
     public void removeFromCreatureList(ICreature creatureToRemove){
@@ -50,7 +56,8 @@ public class Simulation {
 
         MapCreator mapCreat = new MapCreator(10, 20);
         IGeneralCreator generalCreat = new GeneralCreator(8, 4);
-        Simulation sim = new Simulation(mapCreat, generalCreat, 1, 20);
+        IDumbledoreCreator dumbledoreCreat = new DumbledoreCreator();
+        Simulation sim = new Simulation(mapCreat, generalCreat, dumbledoreCreat, 1, 20);
 
         sim.runSimulation();
 
