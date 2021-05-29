@@ -22,10 +22,10 @@ public class Basilisk extends Creature implements IKill {
      */
     @Override
     public void move(){
-        map.changePosition(this);
+        map.randomRelocate(this);
         InteractionAgent.action(this, map);
 
-        map.changePosition(this);
+        map.randomRelocate(this);
         InteractionAgent.action(this, map);
     }
 

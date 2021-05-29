@@ -5,14 +5,16 @@ import hogwartSim.dumbledore.IDumbledore;
 
 
 public class DumbledoreCreator implements IDumbledoreCreator {
+    protected Dumbledore dumbledore;
 
-
-    public DumbledoreCreator() {
-
-    }
+//    public DumbledoreCreator() {
+//    }
 
     @Override
     public IDumbledore createDumbledore() {
-        return new Dumbledore();
+        if (dumbledore == null) {
+            dumbledore = new Dumbledore();
+        }
+        return dumbledore;
     }
 }

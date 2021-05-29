@@ -1,5 +1,6 @@
 package hogwartSim.general.creator;
 
+import hogwartSim.general.ButterBeer;
 import hogwartSim.general.IItem;
 import hogwartSim.map.IMap;
 
@@ -13,6 +14,9 @@ public class ItemCreator implements IItemCreator {
     @Override
     public List<IItem> createItems(IMap map) {
         List<IItem> itemList = new LinkedList<>();
+        for (int i=0; i<numBeers; i++){
+            itemList.add(new ButterBeer(map));
+        }
         return itemList;
     }
 }

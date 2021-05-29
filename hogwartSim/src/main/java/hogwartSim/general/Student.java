@@ -1,5 +1,6 @@
 package hogwartSim.general;
 
+import hogwartSim.dumbledore.IDumbledore;
 import hogwartSim.map.IMap;
 
 public class Student extends Wizard {
@@ -8,8 +9,8 @@ public class Student extends Wizard {
     //protected String house;
     private boolean isAlive;
 
-    public Student(IMap map, String house) {
-        super(map, house);
+    public Student(IMap map, String house, IDumbledore dumbledore) {
+        super(map, house, dumbledore);
         this.isAlive = true;
     }
 
@@ -25,6 +26,7 @@ public class Student extends Wizard {
 
     public void use(IItem item) {
         item.getUsed();
-        map.removeItemFromMap(item);
+        map.removeFromMap(item);
+        dumbledore.addPoints(this.house, 20);
     }
 }

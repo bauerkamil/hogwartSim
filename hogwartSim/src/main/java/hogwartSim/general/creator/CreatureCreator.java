@@ -1,5 +1,6 @@
 package hogwartSim.general.creator;
 
+import hogwartSim.dumbledore.IDumbledore;
 import hogwartSim.general.Basilisk;
 import hogwartSim.general.ICreature;
 import hogwartSim.general.Student;
@@ -20,7 +21,7 @@ public class CreatureCreator implements ICreatureCreator {
     }
 
     @Override
-    public List<ICreature> createCreatures(IMap map) {
+    public List<ICreature> createCreatures(IMap map, IDumbledore dumbledore) {
         List<ICreature> creatureList = new LinkedList<>();
         /**
          * create one basilisk
@@ -31,10 +32,10 @@ public class CreatureCreator implements ICreatureCreator {
          * create a number of students and teachers with a house sorted
          */
         for(int i = 0; i<numStudents; i++)
-            creatureList.add(new Student(map, sortingHat(i)));
+            creatureList.add(new Student(map, sortingHat(i), dumbledore));
 
         for(int i = 0; i<numTeachers; i++)
-            creatureList.add(new Teacher(map, sortingHat(i)));
+            creatureList.add(new Teacher(map, sortingHat(i), dumbledore));
 
         return creatureList;
     }

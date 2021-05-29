@@ -12,11 +12,20 @@ public class PositionXY {
         this.y = y;
     }
 
-    public int getX() {
-        return x;
+    @Override
+    public boolean equals(Object o) {
+
+        if (o == this) {
+            return true;
+        }
+
+        if (!(o instanceof PositionXY)) {
+            return false;
+        }
+
+        PositionXY p = (PositionXY) o;
+
+        return x == p.x && y == p.y;
     }
 
-    public int getY() {
-        return y;
-    }
 }

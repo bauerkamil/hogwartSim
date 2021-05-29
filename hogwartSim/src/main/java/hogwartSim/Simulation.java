@@ -29,8 +29,8 @@ public class Simulation {
         dumbledore = dumbledoreCreator.createDumbledore();
 
         rnd = new Random(seed);
-        rnd.setSeed(seed);
-        creatureList = creatureCreator.createCreatures(map);
+//        rnd.setSeed(seed);
+        creatureList = creatureCreator.createCreatures(map, dumbledore);
 
         itemList = itemCreator.createItems(map);
 
@@ -41,10 +41,11 @@ public class Simulation {
          * put creatures and items on the map
          */
         for (int i = 0; i < creatureList.size(); i++) {
-            map.changePosition(creatureList.get(i));
+            map.randomLocate(creatureList.get(i));
         }
         for (int j = 0; j < itemList.size(); j++) {
-            map.changeItemPosition(itemList.get(j));
+            map.randomLocate(itemList.get(j));
+//            map.changeItemPosition(itemList.get(j));
         }
     }
 
@@ -57,16 +58,16 @@ public class Simulation {
             /**
              * move each creature on the list
              */
-            for(ICreature iCreature : creatureList){
+            for(ICreature iCreature : map.getCreatures()){
                 iCreature.move();
             }
         }
         dumbledore.declareWinner();
 
     }
-    public void removeFromCreatureList(ICreature creatureToRemove){
-        creatureList.remove(creatureToRemove);
-    }
+//    public void removeFromCreatureList(ICreature creatureToRemove){
+//        creatureList.remove(creatureToRemove);
+//    }
 
     public static void main(String[] args){
 

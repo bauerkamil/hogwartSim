@@ -2,7 +2,6 @@ package hogwartSim.general;
 
 import hogwartSim.interactions.InteractionAgent;
 import hogwartSim.map.IMap;
-import hogwartSim.map.MaraudersMap;
 
 public abstract class Creature implements ICreature {
     protected IMap map;
@@ -15,7 +14,7 @@ public abstract class Creature implements ICreature {
          * The following are why there is a protected IMap map
          * This allows function changePosition() to be non-static
          */
-        map.changePosition(this);
+        map.randomRelocate(this);
         InteractionAgent.action(this, map);
     }
 }

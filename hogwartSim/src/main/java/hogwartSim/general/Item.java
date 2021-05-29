@@ -2,7 +2,7 @@ package hogwartSim.general;
 
 import hogwartSim.map.IMap;
 
-public abstract class Item implements IItem, IPointGetter {
+public abstract class Item implements IItem {
     protected boolean isUsed;
     protected IMap map;
 
@@ -15,5 +15,5 @@ public abstract class Item implements IItem, IPointGetter {
         this.isUsed = false;
     }
 
-    public void changePointNumber(Student student){}
+//    public void meetStudent(Student student){}
 }

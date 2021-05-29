@@ -3,99 +3,131 @@ package hogwartSim.map;
 import hogwartSim.general.ICreature;
 import hogwartSim.general.IItem;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class MaraudersMap implements IMap {
 
 
     protected Random rnd;
-    protected long seed;
+//    protected long seed;
     private int mapSize;
-    private ICreature[] creatures;
+//    private ICreature[] creatures;
     private Map<ICreature, PositionXY> creaturePosition;
-    private IItem[] items;
+//    private IItem[] items;
     private Map<IItem, PositionXY> itemPosition;
 
     public MaraudersMap(int mapSize, long seed){
 
         this.mapSize = mapSize;
 
-        this.seed=seed;
+//        this.seed=seed;
         this.rnd = new Random(seed);
-        rnd.setSeed(seed);
+//        rnd.setSeed(seed);
         /**
          * create table for movable creatures and a map to remember their positions
          * JAKA WIELKOŚĆ TABLICY?? (dwie kreatury mogą się pojawić na tym samym polu)
          * Jest ona w ogóle potrzebna?
          */
-        creatures = new ICreature[mapSize];
+//        creatures = new ICreature[mapSize];
         creaturePosition = new HashMap<ICreature, PositionXY>();
         /**
-         * create table for 4 non-movable items (different type than ICreature)
+         * create table for non-movable items (different type than ICreature)
          */
-        items = new IItem[mapSize];
+//        items = new IItem[mapSize];
         itemPosition = new HashMap<IItem, PositionXY>();
     }
 
-
-    public void changePosition(ICreature creature) {
-        /**
-         * randomize 2D position within map range
-         */
-        int positionX = rnd.nextInt(mapSize);
-        int positionY = rnd.nextInt(mapSize);
-        /**
-         * change the position of @param creature
-          */
-        creaturePosition.put(creature, new PositionXY(positionX, positionY));
-
+    public List<ICreature> getCreatures(){
+        return new ArrayList(creaturePosition.keySet());
     }
-    public void changeItemPosition(IItem item) {
-        /**
-         * randomize 2D position within map range
-         */
-        int positionX = rnd.nextInt(mapSize);
-        int positionY = rnd.nextInt(mapSize);
-        /**
-         * change the position of @param creature
-         */
-        itemPosition.put(item, new PositionXY(positionX, positionY));
+
+
+    /**
+     * get new random position for the creature
+     * @param creature
+     */
+    public void randomLocate(ICreature creature) {
+        creaturePosition.put(creature, this.getRandomPosition());
     }
-    public ICreature checkPosition(ICreature givenCreature){
-        PositionXY givenPosition = creaturePosition.get(givenCreature);
-        /**
-         * iterate over each creature on the map
-         */
-        for(ICreature iCreature : creaturePosition.keySet()){
-            PositionXY iPosition = creaturePosition.get(iCreature);
-            /**
-             * check if the coordinates are the same as the given in @param givenCreature
-             * if so then return reference to it
-             */
-            if (iCreature != givenCreature){
-                if(givenPosition.getX() == iPosition.getX() && givenPosition.getY() == iPosition.getY()){
-                    return iCreature;
-                }
-            }
+
+    public void randomLocate(IItem item) {
+        // TODO: Check if key doesn't exist in map already
+        itemPosition.put(item, this.getRandomPosition());
+    }
+
+    public void randomRelocate(ICreature creature) {
+        if(creaturePosition.containsKey(creature)) {
+            creaturePosition.put(creature, this.getRandomPosition());
         }
-        return null;
+    }
+
+    protected PositionXY getRandomPosition() {
+        int x = rnd.nextInt(mapSize);
+        int y = rnd.nextInt(mapSize);
+        return new PositionXY(x, y);
+    }
+
+    public List<ICreature> getAtPosition(PositionXY positionXY){
+//        PositionXY givenPosition = creaturePosition.get(givenCreature);
+//        /**
+//         * iterate over each creature on the map
+//         */
+//        for(ICreature iCreature : creaturePosition.keySet()){
+//            PositionXY iPosition = creaturePosition.get(iCreature);
+//            /**
+//             * check if the coordinates are the same as the given in @param givenCreature
+//             * if so then return reference to it
+//             */
+//            if (iCreature != givenCreature){
+//                // override equals for point
+//                if(givenPosition.getX() == iPosition.getX() && givenPosition.getY() == iPosition.getY()){
+//                    return iCreature;
+//                }
+//            }
+//        }
+        final List<ICreature> creaturesAtPosition = new ArrayList<>();
+
+        creaturePosition.forEach((creature, positionXY1) -> {
+            if(positionXY1.equals(positionXY)){
+                creaturesAtPosition.add(creature);
+            }
+        });
+        return creaturesAtPosition;
+    }
+
+    public List<IItem> getItemsAtPosition(PositionXY positionXY){
+        final List<IItem> itemsAtPosition = new ArrayList<>();
+
+        itemPosition.forEach((item, itemPositionXY) -> {
+            if(itemPositionXY.equals(positionXY)){
+                itemsAtPosition.add(item);
+            }
+
+        });
+        return itemsAtPosition;
+    }
+    public PositionXY getPosition(ICreature creature){
+        if(!creaturePosition.containsKey(creature)){
+            throw new IllegalArgumentException("Creature not on map");
+        }
+        return creaturePosition.get(creature);
     }
     public IItem checkForItemPosition(ICreature givenCreature){
-        /**
-         * iterate over each item on the map
-         */
-        for(IItem iitem : itemPosition.keySet()){
-            /**
-             * check if the coordinates are the same as the given in @param givenCreature
-             * if so then return reference to it
-             */
-            if(itemPosition.get(iitem).equals(creaturePosition.get(givenCreature)))
-                return iitem;
-
-
-        }
+//        PositionXY givenPosition = creaturePosition.get(givenCreature);
+//        /**
+//         * iterate over each item on the map
+//         */
+//        for(IItem iitem : itemPosition.keySet()){
+//            PositionXY iPosition = itemPosition.get(iitem);
+//            /**
+//             * check if the coordinates are the same as the given in @param givenCreature
+//             * if so then return reference to it
+//             */
+//            if(givenPosition.getX() == iPosition.getX() && givenPosition.getY() == iPosition.getY())
+//                return iitem;
+//
+//
+//        }
 
         return null;
     }
@@ -103,7 +135,7 @@ public class MaraudersMap implements IMap {
     public void removeFromMap(ICreature creatureToRemove) {
         creaturePosition.remove(creatureToRemove);
     }
-    public void removeItemFromMap(IItem itemToRemove){
+    public void removeFromMap(IItem itemToRemove){
         itemPosition.remove(itemToRemove);
     }
 }

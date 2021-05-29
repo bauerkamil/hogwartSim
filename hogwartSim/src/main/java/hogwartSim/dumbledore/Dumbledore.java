@@ -1,7 +1,7 @@
 package hogwartSim.dumbledore;
 
 public class Dumbledore implements IDumbledore {
-    private int[] houses = new int[4];
+    protected int[] housesPoints = new int[4];
 
     /**
      * add points to a house
@@ -12,19 +12,19 @@ public class Dumbledore implements IDumbledore {
 
         switch (house) {
             case "Gryffindor": {
-                houses[0] += points;
+                housesPoints[0] += points;
                 break;
             }
             case "Slytherin": {
-                houses[1] += points;
+                housesPoints[1] += points;
                 break;
             }
             case "Ravenclaw": {
-                houses[2] += points;
+                housesPoints[2] += points;
                 break;
             }
             case "Hufflepuff": {
-                houses[3] += points;
+                housesPoints[3] += points;
                 break;
             }
             default:
@@ -39,17 +39,17 @@ public class Dumbledore implements IDumbledore {
 
     public void declareWinner() {
         addPoints("Gryffindor", 50);
-        int max = houses[0];
+        int max = housesPoints[0];
         for (int i = 0; i < 4; i++) {
-            if (max < houses[i]) {
-                max = houses[i];
+            if (max < housesPoints[i]) {
+                max = housesPoints[i];
             }
         }
-        if (max == houses[0]) {
+        if (max == housesPoints[0]) {
             System.out.println("Gryffindor wins the House Cup");
-        } else if (max == houses[1]) {
+        } else if (max == housesPoints[1]) {
             System.out.println("Ravenclaw wins the House Cup");
-        } else if (max == houses[2]) {
+        } else if (max == housesPoints[2]) {
             System.out.println("Ravenclaw wins the House Cup");
         } else {
             System.out.println("Hufflepuff wins the House Cup");
