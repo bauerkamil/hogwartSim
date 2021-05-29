@@ -52,7 +52,8 @@ public class InteractionAgent {
          */
         if (((Student)student1).getIsAlive()){
             IItem item = maraudersMap.checkForItemPosition(student1);
-            ((Student)student1).use(item);
+            if(item != null)
+                ((Student)student1).use(item);
         }
 
     }

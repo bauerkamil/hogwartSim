@@ -23,8 +23,8 @@ public class MaraudersMap implements IMap {
         this.mapSize = mapSize;
 
         this.seed=seed;
-        rnd.setSeed(seed);
         this.rnd = new Random(seed);
+        rnd.setSeed(seed);
         /**
          * create table for movable creatures and a map to remember their positions
          * JAKA WIELKOŚĆ TABLICY?? (dwie kreatury mogą się pojawić na tym samym polu)

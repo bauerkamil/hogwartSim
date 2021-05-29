@@ -28,8 +28,8 @@ public class Simulation {
         map = mapCreator.createMap();
         dumbledore = dumbledoreCreator.createDumbledore();
 
-        //rnd.setSeed(seed);
         rnd = new Random(seed);
+        rnd.setSeed(seed);
         creatureList = creatureCreator.createCreatures(map);
 
         itemList = itemCreator.createItems(map);
