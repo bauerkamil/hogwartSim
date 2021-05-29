@@ -70,11 +70,11 @@ public class Simulation {
 
     public static void main(String[] args){
 
-        MapCreator mapCreator = new MapCreator(10, 20);
-        ICreatureCreator creatureCreator = new CreatureCreator(8, 4);
+        MapCreator mapCreator = new MapCreator(20, 20);
+        ICreatureCreator creatureCreator = new CreatureCreator(12, 4);
         IItemCreator itemCreator = new ItemCreator(5);
         IDumbledoreCreator dumbledoreCreator = new DumbledoreCreator();
-        Simulation sim = new Simulation(mapCreator, creatureCreator, itemCreator, dumbledoreCreator, 1, 20);
+        Simulation sim = new Simulation(mapCreator, creatureCreator, itemCreator, dumbledoreCreator, 1, 40);
 
         sim.runSimulation();
 

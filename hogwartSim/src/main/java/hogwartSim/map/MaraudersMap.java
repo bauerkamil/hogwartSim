@@ -51,7 +51,6 @@ public class MaraudersMap implements IMap {
           */
         creaturePosition.put(creature, new PositionXY(positionX, positionY));
 
-
     }
     public void changeItemPosition(IItem item) {
         /**
@@ -65,17 +64,21 @@ public class MaraudersMap implements IMap {
         itemPosition.put(item, new PositionXY(positionX, positionY));
     }
     public ICreature checkPosition(ICreature givenCreature){
+        PositionXY givenPosition = creaturePosition.get(givenCreature);
         /**
          * iterate over each creature on the map
          */
         for(ICreature iCreature : creaturePosition.keySet()){
+            PositionXY iPosition = creaturePosition.get(iCreature);
             /**
              * check if the coordinates are the same as the given in @param givenCreature
              * if so then return reference to it
              */
-            if(creaturePosition.get(iCreature).equals(creaturePosition.get(givenCreature)))
-                return iCreature;
-
+            if (iCreature != givenCreature){
+                if(givenPosition.getX() == iPosition.getX() && givenPosition.getY() == iPosition.getY()){
+                    return iCreature;
+                }
+            }
         }
         return null;
     }

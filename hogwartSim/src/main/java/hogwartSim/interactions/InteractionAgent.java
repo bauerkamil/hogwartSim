@@ -42,10 +42,10 @@ public class InteractionAgent {
         * if creature2 is a teacher activate teacher to give points
         * or if creature2 is a basilisk activate basilisk to kill the student
         */
-        if(creature2.getClass() == Teacher.class)
+        if(creature2 != null && creature2.getClass() == Teacher.class)
             ((Teacher)creature2).changePointNumber((Student) student1);
 
-        else if(creature2.getClass() == Basilisk.class)
+        else if(creature2 != null && creature2.getClass() == Basilisk.class)
             ((Basilisk) creature2).kill((Student) student1);
         /**
          * if the student is alive (can be killed by basilisk beforehand) check for items and
@@ -65,8 +65,8 @@ public class InteractionAgent {
         /**
          * if creature2 is a student activate teacher to give points
          */
-        if(creature2.getClass() == Student.class)
-            ((Teacher)creature2).changePointNumber((Student) creature2);
+        if(creature2 != null && creature2.getClass() == Student.class)
+            ((Teacher)teacher1).changePointNumber((Student) creature2);
 
     }
     public static void basiliskAction(ICreature basilisk1, IMap maraudersMap){
@@ -77,7 +77,7 @@ public class InteractionAgent {
         /**
          * if creature2 is a student activate basilisk to kill the student
          */
-        if(creature2.getClass() == Student.class)
+        if(creature2 != null && creature2.getClass() == Student.class)
             ((Basilisk)basilisk1).kill((Student) creature2);
     }
 }
