@@ -7,6 +7,8 @@ public class Teacher extends Wizard {
 //    protected IMap map;
 //    protected String house;
 //    protected IDumbledore dumbledore;
+    protected final int pointsForSameHouse = 50;
+    protected final int pointsForDifferentHouse = -50;
 
     public Teacher(IMap map, String house, IDumbledore dumbledore) {
         super(map, house, dumbledore);
@@ -16,10 +18,10 @@ public class Teacher extends Wizard {
 
     public void meetStudent(Student student) {
         if (isTheSameHouse(this, student)){
-            dumbledore.addPoints(student.house, 20);
-            System.out.println(student.house + "got 20 points");
+            dumbledore.addPoints(student.house, pointsForSameHouse);
+            System.out.println(student.house + " got " + pointsForSameHouse + " points");
         } else {
-            dumbledore.addPoints(student.house, -20);
+            dumbledore.addPoints(student.house, pointsForDifferentHouse);
         }
     }
 

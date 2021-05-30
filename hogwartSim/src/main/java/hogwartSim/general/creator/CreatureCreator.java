@@ -45,7 +45,7 @@ public class CreatureCreator implements ICreatureCreator {
          * sort wizards into 4 houses, every fourth goes to the same house
          */
         if(wizardNumber % 4 == 0)
-            return "Hogwarts";
+            return "Gryffindor";
         else if(wizardNumber % 4 == 1)
             return "Slytherin";
         else if(wizardNumber % 4 == 2)

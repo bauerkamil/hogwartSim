@@ -75,7 +75,7 @@ public class Simulation {
         ICreatureCreator creatureCreator = new CreatureCreator(12, 4);
         IItemCreator itemCreator = new ItemCreator(5);
         IDumbledoreCreator dumbledoreCreator = new DumbledoreCreator();
-        Simulation sim = new Simulation(mapCreator, creatureCreator, itemCreator, dumbledoreCreator, 1, 40);
+        Simulation sim = new Simulation(mapCreator, creatureCreator, itemCreator, dumbledoreCreator, 1, 200);
 
         sim.runSimulation();
 

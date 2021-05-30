@@ -8,6 +8,7 @@ public class Student extends Wizard {
     //protected IMap map;
     //protected String house;
     private boolean isAlive;
+    protected final int pointsForBeer = 20;
 
     public Student(IMap map, String house, IDumbledore dumbledore) {
         super(map, house, dumbledore);
@@ -27,6 +28,12 @@ public class Student extends Wizard {
     public void use(IItem item) {
         item.getUsed();
         map.removeFromMap(item);
-        dumbledore.addPoints(this.house, 20);
+        dumbledore.addPoints(this.house, pointsForBeer);
+    }
+    public void move(){
+        if(!isAlive){
+            return;
+        }
+        super.move();
     }
 }

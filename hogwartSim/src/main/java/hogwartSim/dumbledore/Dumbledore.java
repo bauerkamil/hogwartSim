@@ -1,7 +1,9 @@
 package hogwartSim.dumbledore;
 
+import hogwartSim.general.HogwartHouses;
+
 public class Dumbledore implements IDumbledore {
-    protected int[] housesPoints = new int[4];
+    protected int[] housesPoints = new int[HogwartHouses.size()];
 
     /**
      * add points to a house

@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * class responsible for interactions after movement (possibly accompanied with map it replaces class General)
  */
-public class InteractionAgent {
+public class InteractionAgent implements IInteractionAgent {
 
     public static void action(ICreature creature, IMap map){
         /**
@@ -94,7 +94,7 @@ public class InteractionAgent {
 //                creaturesOnPosition.stream().filter(
 //                creature -> creature.getClass() == Basilisk.class
 //        );
-        if (basiliskList != null){
+        if (basiliskList.size() > 0){
             Basilisk basilisk0 = basiliskList.get(0);
             basilisk0.kill(student);
         }
