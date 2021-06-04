@@ -9,6 +9,9 @@ public abstract class Creature implements ICreature {
         this.map = map;
     }
 
+    /**
+     * Changes location of the object
+     */
     public void move() {
         /**
          * The following are why there is a protected IMap map

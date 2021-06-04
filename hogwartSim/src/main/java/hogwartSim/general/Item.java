@@ -11,6 +11,9 @@ public abstract class Item implements IItem {
         this.isUsed = true;
     }
 
+    /**
+     * Changes a state of the used object to false
+     */
     public void getUsed(){
         this.isUsed = false;
     }

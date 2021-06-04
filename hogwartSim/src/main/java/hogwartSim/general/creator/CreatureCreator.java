@@ -20,16 +20,22 @@ public class CreatureCreator implements ICreatureCreator {
         this.numTeachers = numTeachers;
     }
 
+    /**
+     * Creates a basilisk, students and teachers
+     * @param map The map where the objects are placed
+     * @param dumbledore The object that calculates points got by certain objects
+     * @return Returns a list of creatures
+     */
     @Override
     public List<ICreature> createCreatures(IMap map, IDumbledore dumbledore) {
         List<ICreature> creatureList = new LinkedList<>();
         /**
-         * create one basilisk
+         * Creates one basilisk
          */
         creatureList.add(new Basilisk(map));
 
         /**
-         * create a number of students and teachers with a house sorted
+         * Creates a number of students and teachers with a house sorted
          */
         for(int i = 0; i<numStudents; i++)
             creatureList.add(new Student(map, sortingHat(i), dumbledore));
@@ -40,10 +46,13 @@ public class CreatureCreator implements ICreatureCreator {
         return creatureList;
     }
 
+    /**
+     * Sorts wizards into 4 houses, every fourth goes to the same house
+     * @param wizardNumber The number that is decisive to choose the House
+     * @return Returns the chosen House
+     */
     public String sortingHat(int wizardNumber){
-        /**
-         * sort wizards into 4 houses, every fourth goes to the same house
-         */
+
         if(wizardNumber % 4 == 0)
             return "Gryffindor";
         else if(wizardNumber % 4 == 1)

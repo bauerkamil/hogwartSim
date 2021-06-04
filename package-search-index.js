@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"hogwartSim"},{"l":"hogwartSim.dumbledore"},{"l":"hogwartSim.dumbledore.creator"},{"l":"hogwartSim.general"},{"l":"hogwartSim.general.creator"},{"l":"hogwartSim.interactions"},{"l":"hogwartSim.map"},{"l":"hogwartSim.map.creator"}];updateSearchResults();

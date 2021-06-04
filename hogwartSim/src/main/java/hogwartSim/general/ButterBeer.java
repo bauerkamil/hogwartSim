@@ -9,6 +9,10 @@ public class ButterBeer extends Item {
         super(map);
         this.isUsed = true;
     }
+
+    /**
+     * Changes a state of the used object to false
+     */
     @Override
     public void getUsed() {
         this.isUsed = false;

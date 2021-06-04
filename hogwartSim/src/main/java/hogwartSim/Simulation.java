@@ -16,6 +16,7 @@ import hogwartSim.map.creator.MapCreator;
 import java.util.List;
 import java.util.Random;
 
+
 public class Simulation {
     private IMap map;
     private IDumbledore dumbledore;
@@ -24,7 +25,7 @@ public class Simulation {
     private List<IItem> itemList;
     private final int maxIter;
 
-    public Simulation(IMapCreator mapCreator, ICreatureCreator creatureCreator, IItemCreator itemCreator, IDumbledoreCreator dumbledoreCreator, long seed, int maxIter) {
+    public Simulation(MapCreator mapCreator, ICreatureCreator creatureCreator, IItemCreator itemCreator, IDumbledoreCreator dumbledoreCreator, long seed, int maxIter) {
         map = mapCreator.createMap();
         dumbledore = dumbledoreCreator.createDumbledore();
 
@@ -38,7 +39,7 @@ public class Simulation {
 
 
         /**
-         * put creatures and items on the map
+         * Puts creatures and items on the map
          */
         for (int i = 0; i < creatureList.size(); i++) {
             map.randomLocate(creatureList.get(i));
@@ -49,14 +50,17 @@ public class Simulation {
         }
     }
 
+    /**
+     * Runs the simulation
+     */
     public void runSimulation() {
 
         /**
-         * repeat cycles until maximum number of iterations is reached
+         * Repeats cycles until maximum number of iterations is reached
          */
         for (int cycleNumber = 0; cycleNumber < maxIter; cycleNumber++) {
             /**
-             * move each creature on the list
+             * Moves each creature on the list
              */
             for(ICreature iCreature : map.getCreatures()){
                 iCreature.move();

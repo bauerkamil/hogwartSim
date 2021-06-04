@@ -12,7 +12,6 @@ public enum HogwartHouses {
     private final int value;
 
     private static Map houseMap = new HashMap();
-
     private HogwartHouses(int value) {
         this.value = value;
     }

@@ -7,9 +7,9 @@ import hogwartSim.dumbledore.IDumbledore;
 public class DumbledoreCreator implements IDumbledoreCreator {
     protected Dumbledore dumbledore;
 
-//    public DumbledoreCreator() {
-//    }
-
+    /**
+     * Creates Dumbledore object
+     */
     @Override
     public IDumbledore createDumbledore() {
         if (dumbledore == null) {

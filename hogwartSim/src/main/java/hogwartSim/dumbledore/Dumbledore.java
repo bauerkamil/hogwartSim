@@ -6,9 +6,10 @@ public class Dumbledore implements IDumbledore {
     protected int[] housesPoints = new int[HogwartHouses.size()];
 
     /**
-     * add points to a house
+     * Adds points to a House
+     * @param house The House that gets the points
+     * @param points A number of points to add
      */
-
     @Override
     public void addPoints(String house, int points) {
 
@@ -34,11 +35,10 @@ public class Dumbledore implements IDumbledore {
         }
     }
 
+
     /**
-     * add 50 points to Gryffindor and check which house has the most points
+     * Adds 50 points to Gryffindor and checks which house has the most points
      */
-
-
     public void declareWinner() {
         addPoints("Gryffindor", 50);
         int max = housesPoints[0];

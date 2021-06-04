@@ -9,6 +9,10 @@ public class Basilisk extends Creature implements IKill {
         super(map);
     }
 
+    /**
+     * Kills a student
+     * @param studentToKill The specific student to kill
+     */
     public void kill(Student studentToKill) {
         studentToKill.die();
         map.removeFromMap(studentToKill);
@@ -18,7 +22,7 @@ public class Basilisk extends Creature implements IKill {
     }
 
     /**
-     * override move() method and give basilisk a double round
+     * Overrides move() method and gives basilisk a double round
      */
     @Override
     public void move(){

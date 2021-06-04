@@ -15,7 +15,10 @@ public class Teacher extends Wizard {
     }
 
 
-
+    /**
+     * Adds or removes points depending on the students's House
+     * @param student The encountered student
+     */
     public void meetStudent(Student student) {
         if (isTheSameHouse(this, student)){
             dumbledore.addPoints(student.house, pointsForSameHouse);

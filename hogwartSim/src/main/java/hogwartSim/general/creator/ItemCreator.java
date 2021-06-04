@@ -10,6 +10,11 @@ import java.util.List;
 public class ItemCreator implements IItemCreator {
 
     protected int numBeers;
+
+    /**
+     * Creates butterbeers to place on the map
+     * @param numBeers The number of butterbeers to create
+     */
     public ItemCreator(int numBeers){this.numBeers=numBeers;}
     @Override
     public List<IItem> createItems(IMap map) {
