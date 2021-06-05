@@ -10,6 +10,9 @@ import hogwartSim.map.IMap;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * A class to create students, teachers and basilisk
+ */
 public class CreatureCreator implements ICreatureCreator {
 
     protected int numStudents;

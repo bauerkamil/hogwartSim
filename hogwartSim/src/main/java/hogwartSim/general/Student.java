@@ -22,7 +22,7 @@ public class Student extends Wizard {
     }
 
     /**
-     * Changes a state of the object to false
+     * Changes a state of the object to isAlive=false
      */
     public void die(){
         this.isAlive = false;
@@ -39,7 +39,7 @@ public class Student extends Wizard {
     }
 
     /**
-     * Checkes if is alive and moves to another location
+     * Checks if the student is alive and moves to another location
      */
     public void move(){
         if(!isAlive){

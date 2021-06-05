@@ -7,24 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * class responsible for interactions after movement (possibly accompanied with map it replaces class General)
+ * The class responsible for interactions after movement (possibly accompanied with map it replaces class General)
  */
 public class InteractionAgent implements IInteractionAgent {
 
+    /**
+     * Checks class of creature to activate proper action
+     */
     public static void action(ICreature creature, IMap map){
-        /**
-         * check class of creature to activate proper action
-         */
+
         handleCreatureMeeting(creature, map);
         handleItemMeeting(creature, map);
     }
 
     /**
-     * following specific actions check class of the objects before casting them to their classes
+     * Following specific actions checks class of the objects before casting them to their classes
      */
-
-
-
     protected static void handleCreatureMeeting(ICreature creature, IMap map){
         List<ICreature> creaturesOnPosition = map.getAtPosition(map.getPosition(creature));
 
@@ -48,6 +46,12 @@ public class InteractionAgent implements IInteractionAgent {
             throw new IllegalArgumentException("The class of @param creature hasn't been specified in handleCreatureMeeting - Interaction Agent");
 
     }
+
+    /**
+     *
+     * @param creature
+     * @param map
+     */
     protected static void handleItemMeeting(ICreature creature, IMap map){
         if (creature.getClass() != Student.class){
            return;
@@ -139,7 +143,7 @@ public class InteractionAgent implements IInteractionAgent {
     /**
      * Basilisk meeting other creatures
      * @param basilisk
-     * @param creaturesOnPosition
+     * @param creaturesOnPosition Specific objects on the position
      */
     protected static void basiliskAction(Basilisk basilisk, List<ICreature> creaturesOnPosition){
 //        /**

@@ -16,6 +16,13 @@ public class MaraudersMap implements IMap {
 //    private IItem[] items;
     private Map<IItem, PositionXY> itemPosition;
 
+
+    /**
+     * Creates a table for movable creatures and a map to remember their positions,
+     * Creates a table for non-movable items (different type than ICreature)
+     * @param mapSize The length of the map
+     * @param seed A random seed
+     */
     public MaraudersMap(int mapSize, long seed){
 
         this.mapSize = mapSize;
@@ -23,15 +30,14 @@ public class MaraudersMap implements IMap {
 //        this.seed=seed;
         this.rnd = new Random(seed);
 //        rnd.setSeed(seed);
+
         /**
-         * create table for movable creatures and a map to remember their positions
-         * JAKA WIELKOŚĆ TABLICY?? (dwie kreatury mogą się pojawić na tym samym polu)
-         * Jest ona w ogóle potrzebna?
+         * Creates a table for movable creatures and a map to remember their positions
          */
 //        creatures = new ICreature[mapSize];
         creaturePosition = new HashMap<ICreature, PositionXY>();
         /**
-         * create table for non-movable items (different type than ICreature)
+         * Creates a table for non-movable items (different type than ICreature)
          */
 //        items = new IItem[mapSize];
         itemPosition = new HashMap<IItem, PositionXY>();
@@ -43,8 +49,8 @@ public class MaraudersMap implements IMap {
 
 
     /**
-     * get new random position for the creature
-     * @param creature
+     * Gets new random position for the creature
+     * @param creature Student, teacher or basilisk
      */
     public void randomLocate(ICreature creature) {
         creaturePosition.put(creature, this.getRandomPosition());

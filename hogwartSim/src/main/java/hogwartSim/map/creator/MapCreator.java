@@ -3,6 +3,9 @@ package hogwartSim.map.creator;
 import hogwartSim.map.IMap;
 import hogwartSim.map.MaraudersMap;
 
+/**
+ * The class responsible for creating the map
+ */
 public class MapCreator implements IMapCreator {
      final int mapSize;
      long seed;

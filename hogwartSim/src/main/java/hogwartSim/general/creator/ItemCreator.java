@@ -7,6 +7,9 @@ import hogwartSim.map.IMap;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * A class to create butterbeers
+ */
 public class ItemCreator implements IItemCreator {
 
     protected int numBeers;
