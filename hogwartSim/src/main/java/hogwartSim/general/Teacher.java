@@ -8,7 +8,7 @@ public class Teacher extends Wizard {
 //    protected String house;
 //    protected IDumbledore dumbledore;
     protected final int pointsForSameHouse = 50;
-    protected final int pointsForDifferentHouse = -50;
+    protected final int pointsForDifferentHouse = -20;
 
     public Teacher(IMap map, HogwartHouses house, IDumbledore dumbledore) {
         super(map, house, dumbledore);

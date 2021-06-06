@@ -10,7 +10,6 @@ import hogwartSim.general.creator.ICreatureCreator;
 import hogwartSim.general.creator.IItemCreator;
 import hogwartSim.general.creator.ItemCreator;
 import hogwartSim.map.IMap;
-import hogwartSim.map.creator.IMapCreator;
 import hogwartSim.map.creator.MapCreator;
 
 import java.util.List;
@@ -65,11 +64,17 @@ public class Simulation {
             /**
              * Moves each creature on the list
              */
+
             for(ICreature iCreature : map.getCreatures()){
                 iCreature.move();
+
             }
+
+            System.out.println(cycleNumber+1);
+            dumbledore.HousesChart();
         }
         dumbledore.declareWinner();
+        dumbledore.HousesChart();
 
     }
 //    public void removeFromCreatureList(ICreature creatureToRemove){
@@ -78,11 +83,11 @@ public class Simulation {
 
     public static void main(String[] args){
 
-        MapCreator mapCreator = new MapCreator(20, 20);
-        ICreatureCreator creatureCreator = new CreatureCreator(12, 4);
-        IItemCreator itemCreator = new ItemCreator(5);
+        MapCreator mapCreator = new MapCreator(10, 20);
+        ICreatureCreator creatureCreator = new CreatureCreator(12, 8);
+        IItemCreator itemCreator = new ItemCreator(10);
         IDumbledoreCreator dumbledoreCreator = new DumbledoreCreator();
-        Simulation sim = new Simulation(mapCreator, creatureCreator, itemCreator, dumbledoreCreator, 1, 200);
+        Simulation sim = new Simulation(mapCreator, creatureCreator, itemCreator, dumbledoreCreator, 1, 10);
 
         sim.runSimulation();
 
