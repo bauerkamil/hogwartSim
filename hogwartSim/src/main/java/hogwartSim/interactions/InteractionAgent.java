@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The class responsible for interactions after movement (possibly accompanied with map it replaces class General)
+ * Class responsible for interactions after movement (possibly accompanied with map it replaces class General)
  */
 public class InteractionAgent implements IInteractionAgent {
 

@@ -17,7 +17,7 @@ public class Teacher extends Wizard {
 
     /**
      * Adds or removes points depending on the students's House
-     * @param student The encountered student
+     * @param student Encountered student
      */
     public void meetStudent(Student student) {
         if (isTheSameHouse(this, student)){

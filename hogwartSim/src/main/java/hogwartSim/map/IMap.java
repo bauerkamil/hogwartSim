@@ -6,6 +6,9 @@ import hogwartSim.general.Item;
 
 import java.util.List;
 
+/**
+ * Interface related with map methods
+ */
 public interface IMap {
     public List<ICreature> getCreatures();
     public void randomLocate(ICreature creature);

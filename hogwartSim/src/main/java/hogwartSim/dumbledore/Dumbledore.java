@@ -3,13 +3,13 @@ package hogwartSim.dumbledore;
 import hogwartSim.general.HogwartHouses;
 
 /**
- * A class to count the points and to declare a winner
+ * Class to count the points and to declare a winner
  */
 public class Dumbledore implements IDumbledore {
     protected int[] housesPoints = new int[HogwartHouses.size()];
 
     /**
-     * Adds points to a House
+     * Adds points to the right House
      * @param house The House that gets the points
      * @param points A number of points to add
      */

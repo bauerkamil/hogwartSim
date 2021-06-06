@@ -18,7 +18,7 @@ import java.util.Random;
 
 
 /**
- * The class responsible for running the simulation
+ * Class responsible for running the simulation
  */
 public class Simulation {
     private IMap map;

@@ -3,8 +3,8 @@ package hogwartSim.general;
 import hogwartSim.interactions.InteractionAgent;
 import hogwartSim.map.IMap;
 
-/**associated with
- * An abstract class associated with movement
+/**
+ * Abstract class associated with movement
  */
 public abstract class Creature implements ICreature {
     protected IMap map;

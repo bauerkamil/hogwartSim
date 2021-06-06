@@ -10,7 +10,7 @@ public class Basilisk extends Creature implements IKill {
     }
 
     /**
-     * Kills a student
+     * Kills the student
      * @param studentToKill The specific student to kill
      */
     public void kill(Student studentToKill) {

@@ -6,7 +6,7 @@ import hogwartSim.general.IItem;
 import java.util.*;
 
 /**
- * The class associated with map
+ * Class associated with map
  */
 public class MaraudersMap implements IMap {
 

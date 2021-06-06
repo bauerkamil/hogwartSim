@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * A class to create butterbeers
+ * Class to create butterbeers
  */
 public class ItemCreator implements IItemCreator {
 
