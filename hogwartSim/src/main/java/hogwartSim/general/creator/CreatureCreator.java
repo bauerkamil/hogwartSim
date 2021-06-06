@@ -29,50 +29,28 @@ public class CreatureCreator implements ICreatureCreator {
     @Override
     public List<ICreature> createCreatures(IMap map, IDumbledore dumbledore) {
         List<ICreature> creatureList = new LinkedList<>();
-        /**
-         * Creates one basilisk
-         */
+
+//          Creates one basilisk
         creatureList.add(new Basilisk(map));
 
-        /**
-         * Creates a number of students and teachers with a house sorted
-         */
+//          Creates a number of students and teachers with a house sorted
         for(int i = 0; i<numStudents; i++)
             creatureList.add(new Student(map, sortingHat(i), dumbledore));
 
+//          Creates a number items
         for(int i = 0; i<numTeachers; i++)
             creatureList.add(new Teacher(map, sortingHat(i), dumbledore));
 
         return creatureList;
     }
 
-    public HogwartHouses sortingHat(int wizardNumber){
-        /**
-         * sort wizards into 4 houses, every fourth goes to the same house
-         */
-        return HogwartHouses.valueOfHouse(wizardNumber % HogwartHouses.size());}
-//        if(wizardNumber % 4 == 0)
-//            return "Gryffindor";
-//        else if(wizardNumber % 4 == 1)
-//            return "Slytherin";
-//        else if(wizardNumber % 4 == 2)
-//            return "Hufflepuff";
-//        else
-//            return "Ravenclaw";
     /**
      * Sorts wizards into 4 houses, every fourth goes to the same house
      * @param wizardNumber The number that is decisive to choose the House
      * @return Returns the chosen House
      */
-//    public String sortingHat(int wizardNumber){
-//
-//        if(wizardNumber % 4 == 0)
-//            return "Gryffindor";
-//        else if(wizardNumber % 4 == 1)
-//            return "Slytherin";
-//        else if(wizardNumber % 4 == 2)
-//            return "Hufflepuff";
-//        else
-//            return "Ravenclaw";
-//    }
+    public HogwartHouses sortingHat(int wizardNumber){
+        return HogwartHouses.valueOfHouse(wizardNumber % HogwartHouses.size());
+    }
+
 }

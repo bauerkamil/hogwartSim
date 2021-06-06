@@ -4,9 +4,7 @@ import hogwartSim.dumbledore.IDumbledore;
 import hogwartSim.map.IMap;
 
 public class Teacher extends Wizard {
-//    protected IMap map;
-//    protected String house;
-//    protected IDumbledore dumbledore;
+
     protected final int pointsForSameHouse = 50;
     protected final int pointsForDifferentHouse = -20;
 
@@ -21,10 +19,11 @@ public class Teacher extends Wizard {
      */
     public void meetStudent(Student student) {
         if (isTheSameHouse(this, student)){
-            dumbledore.addPoints(student.house, pointsForSameHouse);
-            System.out.println(student.house + " got " + pointsForSameHouse + " points");
+            dumbledore.addPoints(student.getHouse(), pointsForSameHouse);
+            System.out.println(student.getHouse() + " got " + pointsForSameHouse + " points");
         } else {
-            dumbledore.addPoints(student.house, pointsForDifferentHouse);
+            dumbledore.addPoints(student.getHouse(), pointsForDifferentHouse);
+            System.out.println(student.getHouse() + " got " + pointsForDifferentHouse + " points, just because the teacher prefers a different house.");
         }
     }
 

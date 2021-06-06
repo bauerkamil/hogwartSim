@@ -5,8 +5,6 @@ import hogwartSim.map.IMap;
 
 public class Student extends Wizard {
 
-    //protected IMap map;
-    //protected String house;
     private boolean isAlive;
     protected final int pointsForBeer = 20;
 
@@ -29,17 +27,18 @@ public class Student extends Wizard {
     }
 
     /**
-     * Uses the item, changes its state to false, removes the item from the map, adds points
-     * @param item The item that is being used
+     * Uses the itemToBeUsed, removes the itemToBeUsed from the map, adds points
+     * @param itemToBeUsed
      */
-    public void use(IItem item) {
-        item.getUsed();
-        map.removeFromMap(item);
+    public void use(IItem itemToBeUsed) {
+        itemToBeUsed.getUsed();
+        map.removeFromMap(itemToBeUsed);
         dumbledore.addPoints(this.house, pointsForBeer);
+        System.out.println("Student drunk. Student happy. Student finds point record and add themselves some points");
     }
 
     /**
-     * Checks if the student is alive and moves to another location
+     * Checks if the student is alive and if so moves to another location
      */
     public void move(){
         if(!isAlive){

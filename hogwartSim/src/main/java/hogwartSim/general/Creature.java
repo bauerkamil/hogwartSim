@@ -16,10 +16,7 @@ public abstract class Creature implements ICreature {
      * Changes location of the object
      */
     public void move() {
-        /**
-         * The following are why there is a protected IMap map
-         * This allows function changePosition() to be non-static
-         */
+
         map.randomRelocate(this);
         InteractionAgent.action(this, map);
     }

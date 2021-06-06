@@ -10,14 +10,5 @@ public class ButterBeer extends Item {
         this.isUsed = true;
     }
 
-    /**
-     * Changes a state of the used object to false
-     */
-    @Override
-    public void getUsed() {
-        this.isUsed = false;
-        System.out.println("Student drunk. Student happy. Student finds point record and add themselves some points");
-
-    }
 
 }

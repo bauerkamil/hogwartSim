@@ -6,13 +6,16 @@ import hogwartSim.map.IMap;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
- * Class responsible for interactions after movement (possibly accompanied with map it replaces class General)
+ * Class responsible for interactions after movement
  */
 public class InteractionAgent implements IInteractionAgent {
 
     /**
-     * Checks class of creature to activate proper action
+     * handles cases of creatures meeting other things on the map
+     * @param creature
+     * @param map
      */
     public static void action(ICreature creature, IMap map){
 
@@ -20,8 +23,11 @@ public class InteractionAgent implements IInteractionAgent {
         handleItemMeeting(creature, map);
     }
 
+
     /**
-     * Following specific actions checks class of the objects before casting them to their classes
+     * Checks class of creature and activates proper action
+     * @param creature
+     * @param map
      */
     protected static void handleCreatureMeeting(ICreature creature, IMap map){
         List<ICreature> creaturesOnPosition = map.getAtPosition(map.getPosition(creature));
@@ -48,7 +54,7 @@ public class InteractionAgent implements IInteractionAgent {
     }
 
     /**
-     * The class responsible for action between butterbeer and student
+     * The class responsible for action between creatures and items
      * @param creature Student, teacher or basilisk
      * @param map The map
      */
@@ -76,39 +82,13 @@ public class InteractionAgent implements IInteractionAgent {
      */
     public static void studentAction(Student student, List<ICreature> creaturesOnPosition){
 
-//        /**
-//         * check position on map for other creatures
-//         * Each creature can interact with just one other creature
-//         * (e.g. if there is a basilisk, a student and a teacher on the same position, the student will only interact with the basilisk)
-//         */
-//        List<ICreature> creaturesOnPosition = maraudersMap.getAtPosition(student1);
-//        /**
-//        * if creature2 is a teacher activate teacher to give points
-//        * or if creature2 is a basilisk activate basilisk to kill the student
-//        */
-//        if(creature2 != null && creature2.getClass() == Teacher.class)
-//            ((Teacher)creature2).changePointNumber((Student) student1);
-//
-//        else if(creature2 != null && creature2.getClass() == Basilisk.class)
-//            ((Basilisk) creature2).kill((Student) student1);
-//        /**
-//         * if the student is alive (can be killed by basilisk beforehand) check for items and
-//         */
-//        if (!((Student)student1).getIsAlive()) {
-//            IItem item = maraudersMap.checkForItemPosition(student1);
-//            if (item != null)
-//                ((Student) student1).use(item);
-//        }
-
         List<Basilisk>basiliskList = getBasiliskFromCreatureList(creaturesOnPosition);
-//                creaturesOnPosition.stream().filter(
-//                creature -> creature.getClass() == Basilisk.class
-//        );
+
+
         if (basiliskList.size() > 0){
             Basilisk basilisk0 = basiliskList.get(0);
             basilisk0.kill(student);
         }
-
 
 
         creaturesOnPosition.stream().filter(
@@ -134,15 +114,7 @@ public class InteractionAgent implements IInteractionAgent {
      * @param creaturesOnPosition Other creatures on the same position as the teacher
      */
     public static void teacherAction(Teacher teacher, List<ICreature> creaturesOnPosition){
-//        /**
-//         * check position on map for other creatures
-//         */
-//        ICreature creature2 = maraudersMap.getAtPosition(teacher1);
-//        /**
-//         * if creature2 is a student activate teacher to give points
-//         */
-//        if(creature2 != null && creature2.getClass() == Student.class)
-//            ((Teacher)teacher1).changePointNumber((Student) creature2);
+
         creaturesOnPosition.forEach(
                 (creature -> {
                     if (creature.getClass() == Student.class){
@@ -158,15 +130,7 @@ public class InteractionAgent implements IInteractionAgent {
      * @param creaturesOnPosition Other creatures on the same position as the basilisk
      */
     protected static void basiliskAction(Basilisk basilisk, List<ICreature> creaturesOnPosition){
-//        /**
-//         * check position on map for other creatures
-//         */
-//        ICreature creature2 = maraudersMap.getAtPosition(basilisk1);
-//        /**
-//         * if creature2 is a student activate basilisk to kill the student
-//         */
-//        if(creature2 != null && creature2.getClass() == Student.class)
-//            ((Basilisk)basilisk1).kill((Student) creature2);
+
         creaturesOnPosition.forEach(
                 (creature -> {
                     if (creature.getClass() == Student.class){
