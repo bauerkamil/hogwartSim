@@ -15,11 +15,10 @@ public abstract class Item implements IItem {
     }
 
     /**
-     * Changes a state of the used object to false
+     * Changes a state of the used item to false
      */
     public void getUsed(){
         this.isUsed = false;
     }
 
-//    public void meetStudent(Student student){}
 }

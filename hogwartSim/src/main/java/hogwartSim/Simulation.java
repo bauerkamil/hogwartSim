@@ -33,23 +33,20 @@ public class Simulation {
         dumbledore = dumbledoreCreator.createDumbledore();
 
         rnd = new Random(seed);
-//        rnd.setSeed(seed);
+
         creatureList = creatureCreator.createCreatures(map, dumbledore);
 
         itemList = itemCreator.createItems(map);
 
         this.maxIter = maxIter;
 
-
-        /**
-         * Puts creatures and items on the map
-         */
+//        Puts creatures and items on the map
         for (int i = 0; i < creatureList.size(); i++) {
             map.randomLocate(creatureList.get(i));
         }
         for (int j = 0; j < itemList.size(); j++) {
             map.randomLocate(itemList.get(j));
-//            map.changeItemPosition(itemList.get(j));
+
         }
     }
 
@@ -58,13 +55,10 @@ public class Simulation {
      */
     public void runSimulation() {
 
-        /**
-         * Repeats cycles until maximum number of iterations is reached
-         */
+//        Repeats cycles until maximum number of iterations is reached
         for (int cycleNumber = 0; cycleNumber < maxIter; cycleNumber++) {
-            /**
-             * Moves each creature on the list
-             */
+
+//            Moves each creature on the list
             for(ICreature iCreature : map.getCreatures()){
                 iCreature.move();
             }
@@ -72,17 +66,14 @@ public class Simulation {
         dumbledore.declareWinner();
 
     }
-//    public void removeFromCreatureList(ICreature creatureToRemove){
-//        creatureList.remove(creatureToRemove);
-//    }
 
     public static void main(String[] args){
 
-        MapCreator mapCreator = new MapCreator(20, 20);
-        ICreatureCreator creatureCreator = new CreatureCreator(12, 4);
+        MapCreator mapCreator = new MapCreator(40, 20);
+        ICreatureCreator creatureCreator = new CreatureCreator(32, 12);
         IItemCreator itemCreator = new ItemCreator(5);
         IDumbledoreCreator dumbledoreCreator = new DumbledoreCreator();
-        Simulation sim = new Simulation(mapCreator, creatureCreator, itemCreator, dumbledoreCreator, 1, 200);
+        Simulation sim = new Simulation(mapCreator, creatureCreator, itemCreator, dumbledoreCreator, 1, 50);
 
         sim.runSimulation();
 

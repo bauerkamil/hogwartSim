@@ -17,7 +17,6 @@ public interface IMap {
     public List<ICreature> getAtPosition(PositionXY positionXY);
     public List<IItem> getItemsAtPosition(PositionXY positionXY);
     public PositionXY getPosition(ICreature creature);
-//    public IItem checkForItemPosition(ICreature student1);
 
     public void removeFromMap(ICreature creatureToRemove);
     public void removeFromMap(IItem itemToRemove);
