@@ -1,10 +1,7 @@
 package hogwartSim.general.creator;
 
 import hogwartSim.dumbledore.IDumbledore;
-import hogwartSim.general.Basilisk;
-import hogwartSim.general.ICreature;
-import hogwartSim.general.Student;
-import hogwartSim.general.Teacher;
+import hogwartSim.general.*;
 import hogwartSim.map.IMap;
 
 import java.util.LinkedList;
@@ -49,20 +46,33 @@ public class CreatureCreator implements ICreatureCreator {
         return creatureList;
     }
 
+    public HogwartHouses sortingHat(int wizardNumber){
+        /**
+         * sort wizards into 4 houses, every fourth goes to the same house
+         */
+        return HogwartHouses.valueOfHouse(wizardNumber % HogwartHouses.size());}
+//        if(wizardNumber % 4 == 0)
+//            return "Gryffindor";
+//        else if(wizardNumber % 4 == 1)
+//            return "Slytherin";
+//        else if(wizardNumber % 4 == 2)
+//            return "Hufflepuff";
+//        else
+//            return "Ravenclaw";
     /**
      * Sorts wizards into 4 houses, every fourth goes to the same house
      * @param wizardNumber The number that is decisive to choose the House
      * @return Returns the chosen House
      */
-    public String sortingHat(int wizardNumber){
-
-        if(wizardNumber % 4 == 0)
-            return "Gryffindor";
-        else if(wizardNumber % 4 == 1)
-            return "Slytherin";
-        else if(wizardNumber % 4 == 2)
-            return "Hufflepuff";
-        else
-            return "Ravenclaw";
-    }
+//    public String sortingHat(int wizardNumber){
+//
+//        if(wizardNumber % 4 == 0)
+//            return "Gryffindor";
+//        else if(wizardNumber % 4 == 1)
+//            return "Slytherin";
+//        else if(wizardNumber % 4 == 2)
+//            return "Hufflepuff";
+//        else
+//            return "Ravenclaw";
+//    }
 }

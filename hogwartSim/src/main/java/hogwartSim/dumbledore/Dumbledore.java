@@ -7,6 +7,7 @@ import hogwartSim.general.HogwartHouses;
  */
 public class Dumbledore implements IDumbledore {
     protected int[] housesPoints = new int[HogwartHouses.size()];
+    //TODO: make map from array
 
     /**
      * Adds points to the right House
@@ -14,28 +15,8 @@ public class Dumbledore implements IDumbledore {
      * @param points A number of points to add
      */
     @Override
-    public void addPoints(String house, int points) {
-
-        switch (house) {
-            case "Gryffindor": {
-                housesPoints[0] += points;
-                break;
-            }
-            case "Slytherin": {
-                housesPoints[1] += points;
-                break;
-            }
-            case "Ravenclaw": {
-                housesPoints[2] += points;
-                break;
-            }
-            case "Hufflepuff": {
-                housesPoints[3] += points;
-                break;
-            }
-            default:
-                throw new IllegalStateException("Unexpected house value in addPoints: " + house);
-        }
+    public void addPoints(HogwartHouses house, int points) {
+        housesPoints[house.getValue()]+=points;
     }
 
 
@@ -43,7 +24,7 @@ public class Dumbledore implements IDumbledore {
      * Adds 50 points to Gryffindor and checks which house has the most points
      */
     public void declareWinner() {
-        addPoints("Gryffindor", 50);
+        addPoints(HogwartHouses.GRYFFINDOR, 50);
         int max = housesPoints[0];
         for (int i = 0; i < 4; i++) {
             if (max < housesPoints[i]) {

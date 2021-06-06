@@ -1,11 +1,10 @@
 package hogwartSim.dumbledore;
 
-/**
- * Interface to count points and to declare a winner
- */
+import hogwartSim.general.HogwartHouses;
+
 public interface IDumbledore {
 
-    public void addPoints(String house, int points);
+    public void addPoints(HogwartHouses house, int points);
 
     public void declareWinner();
 }

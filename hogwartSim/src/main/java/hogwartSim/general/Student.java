@@ -10,14 +10,14 @@ public class Student extends Wizard {
     private boolean isAlive;
     protected final int pointsForBeer = 20;
 
-    public Student(IMap map, String house, IDumbledore dumbledore) {
+    public Student(IMap map, HogwartHouses house, IDumbledore dumbledore) {
         super(map, house, dumbledore);
         this.isAlive = true;
     }
 
     public boolean getIsAlive(){return this.isAlive;}
 
-    public String getHouse() {
+    public HogwartHouses getHouse() {
         return house;
     }
 
