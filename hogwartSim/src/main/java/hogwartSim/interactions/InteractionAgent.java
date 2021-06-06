@@ -48,9 +48,9 @@ public class InteractionAgent implements IInteractionAgent {
     }
 
     /**
-     *
-     * @param creature
-     * @param map
+     * The class responsible for action between butterbeer and student
+     * @param creature Student, teacher or basilisk
+     * @param map The map
      */
     protected static void handleItemMeeting(ICreature creature, IMap map){
         if (creature.getClass() != Student.class){
@@ -68,6 +68,12 @@ public class InteractionAgent implements IInteractionAgent {
         }
 
     }
+
+    /**
+     * Class responsible for running specific actions between student and other creatures
+     * @param student The student
+     * @param creaturesOnPosition Other creatures on the same position as the student
+     */
     public static void studentAction(Student student, List<ICreature> creaturesOnPosition){
 
 //        /**
@@ -121,6 +127,12 @@ public class InteractionAgent implements IInteractionAgent {
         });
         return basiliskList;
     }
+
+    /**
+     * Class responsible for running specific actions between teacher and other creatures
+     * @param teacher The teacher
+     * @param creaturesOnPosition Other creatures on the same position as the teacher
+     */
     public static void teacherAction(Teacher teacher, List<ICreature> creaturesOnPosition){
 //        /**
 //         * check position on map for other creatures
@@ -141,9 +153,9 @@ public class InteractionAgent implements IInteractionAgent {
     }
 
     /**
-     * Basilisk meeting other creatures
-     * @param basilisk
-     * @param creaturesOnPosition Specific objects on the position
+     * Class responsible for running specific actions between teacher and other creatures
+     * @param basilisk The basilisk
+     * @param creaturesOnPosition Other creatures on the same position as the basilisk
      */
     protected static void basiliskAction(Basilisk basilisk, List<ICreature> creaturesOnPosition){
 //        /**

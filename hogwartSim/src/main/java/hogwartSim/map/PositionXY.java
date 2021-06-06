@@ -1,9 +1,10 @@
 package hogwartSim.map;
 
+/**
+ * This class is a wrapper for generating 2 dimensions in map
+ */
 public class PositionXY {
-    /**
-     * this class is a wrapper for generating 2 dimensions in map
-     */
+
     public int x;
     public int y;
 

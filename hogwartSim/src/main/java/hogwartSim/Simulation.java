@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.Random;
 
 
+/**
+ * The class responsible for running the simulation
+ */
 public class Simulation {
     private IMap map;
     private IDumbledore dumbledore;

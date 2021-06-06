@@ -5,6 +5,9 @@ import hogwartSim.general.IItem;
 
 import java.util.*;
 
+/**
+ * The class associated with map
+ */
 public class MaraudersMap implements IMap {
 
 
@@ -20,7 +23,7 @@ public class MaraudersMap implements IMap {
     /**
      * Creates a table for movable creatures and a map to remember their positions,
      * Creates a table for non-movable items (different type than ICreature)
-     * @param mapSize The length of the map
+     * @param mapSize The size of the map
      * @param seed A random seed
      */
     public MaraudersMap(int mapSize, long seed){
@@ -56,23 +59,41 @@ public class MaraudersMap implements IMap {
         creaturePosition.put(creature, this.getRandomPosition());
     }
 
+    /**
+     * Gets new random position for the creature
+     * @param item Butterbeer
+     */
     public void randomLocate(IItem item) {
         // TODO: Check if key doesn't exist in map already
         itemPosition.put(item, this.getRandomPosition());
     }
 
+
+    /**
+     * Gets new random position for the creature
+     * @param creature Student, teacher or basilisk
+     */
     public void randomRelocate(ICreature creature) {
         if(creaturePosition.containsKey(creature)) {
             creaturePosition.put(creature, this.getRandomPosition());
         }
     }
 
+    /**
+     * Gets random coordinates
+     * @return Returns position with coordinates x and y
+     */
     protected PositionXY getRandomPosition() {
         int x = rnd.nextInt(mapSize);
         int y = rnd.nextInt(mapSize);
         return new PositionXY(x, y);
     }
 
+    /**
+     * Gets new position for each creature
+     * @param positionXY New coordinates x,y
+     * @return Returns arrayList with new positions
+     */
     public List<ICreature> getAtPosition(PositionXY positionXY){
 //        PositionXY givenPosition = creaturePosition.get(givenCreature);
 //        /**
@@ -101,6 +122,11 @@ public class MaraudersMap implements IMap {
         return creaturesAtPosition;
     }
 
+    /**
+     * Gets new position for each item
+     * @param positionXY New coordinates x,y
+     * @return Returns arrayList with new positions
+     */
     public List<IItem> getItemsAtPosition(PositionXY positionXY){
         final List<IItem> itemsAtPosition = new ArrayList<>();
 
@@ -112,6 +138,12 @@ public class MaraudersMap implements IMap {
         });
         return itemsAtPosition;
     }
+
+    /**
+     * Checks and returns the position
+     * @param creature Student, teacher or basilisk
+     * @return Returns creature's position
+     */
     public PositionXY getPosition(ICreature creature){
         if(!creaturePosition.containsKey(creature)){
             throw new IllegalArgumentException("Creature not on map");
@@ -138,9 +170,18 @@ public class MaraudersMap implements IMap {
         return null;
     }
 
+    /**
+     * Removes chosen creature from map
+     * @param creatureToRemove Specific creature to remove
+     */
     public void removeFromMap(ICreature creatureToRemove) {
         creaturePosition.remove(creatureToRemove);
     }
+
+    /**
+     * Removes chosen item from map
+     * @param itemToRemove Specific item to remove
+     */
     public void removeFromMap(IItem itemToRemove){
         itemPosition.remove(itemToRemove);
     }
