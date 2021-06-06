@@ -62,8 +62,11 @@ public class Simulation {
             for(ICreature iCreature : map.getCreatures()){
                 iCreature.move();
             }
+            System.out.println(cycleNumber+1);
+            dumbledore.HousesChart();
         }
         dumbledore.declareWinner();
+        dumbledore.HousesChart();
 
     }
 
