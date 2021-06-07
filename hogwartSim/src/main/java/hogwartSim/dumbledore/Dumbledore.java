@@ -12,7 +12,7 @@ import java.io.PrintWriter;
  * Class to count the points and to declare a winner
  */
 public class Dumbledore implements IDumbledore {
-    private String filepath = "HouseChart.txt";
+    private String filepath = "HouseChart.csv";
     protected int[] housesPoints = new int[HogwartHouses.size()];
     //TODO: make map from array
 
@@ -66,10 +66,10 @@ public class Dumbledore implements IDumbledore {
             BufferedWriter bufferedW = new BufferedWriter(fileW);
             PrintWriter printW = new PrintWriter(bufferedW);
 
-            printW.println(HogwartHouses.GRYFFINDOR+","+housesPoints[0]);
-            printW.println(HogwartHouses.SLYTHERIN+","+housesPoints[1]);
-            printW.println(HogwartHouses.HUFFLEPUFF+","+housesPoints[2]);
-            printW.println(HogwartHouses.RAVENCLAW+","+housesPoints[3]);
+            printW.println(HogwartHouses.GRYFFINDOR+";"+housesPoints[0]);
+            printW.println(HogwartHouses.SLYTHERIN+";"+housesPoints[1]);
+            printW.println(HogwartHouses.HUFFLEPUFF+";"+housesPoints[2]);
+            printW.println(HogwartHouses.RAVENCLAW+";"+housesPoints[3]);
             printW.println(" ");
 
             printW.flush();
