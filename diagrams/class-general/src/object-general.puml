@@ -7,9 +7,11 @@ object "simulation: Simulation" as simulation{
 }
 object "generalCreator: GeneralCreator" as generalCreator{
     numStudents: 1
-    numItems: 10
     numTeachers: 4
     numBasilisks: 1
+}
+object "itemCreator: ItemCreator" as itemCreator{
+    numBeers: 4
 }
 object "mapCreator: MapCreator" as mapCreator{
 
@@ -21,7 +23,7 @@ object "dumbledoreCreator: DumbledoreCreator" as dumbledoreCreator{
 
 }
 object "dumbledore: Dumbledore" as dumbledore{
-
+    housePoints[] = 80,40,-20, 50
 }
 object "student1: Student" as s1{
     isAlive: True
@@ -43,13 +45,14 @@ object "butterbeer1: ButterBeer" as item{
 
 simulation -- generalCreator: uses
 simulation -- mapCreator: uses
+simulation -- itemCreator: uses
 mapCreator -- m2: creates
 simulation -- dumbledoreCreator: uses
 dumbledoreCreator -- dumbledore: creates
 generalCreator -- s1: creates
 generalCreator -- basilisk: creates
 generalCreator -- teacher: creates
-generalCreator -- item: creates
+itemCreator -- item: creates
 m2 	o-- s1: stores position
 m2 	--o s1: stores reference
 m2 	o-- basilisk: stores position
@@ -58,7 +61,7 @@ m2 	o-- teacher: stores position
 m2 	--o teacher: stores reference
 m2 	o-- item: stores position
 m2 	--o item: stores reference
-item -- dumbledore: add points
+s1 -- dumbledore: add points
 teacher -- dumbledore: add points
 basilisk - s1: kills
 s1 - item: use item
@@ -66,5 +69,5 @@ s1 - teacher: meets
 simulation *-- "1" s1
 simulation *-- "4" teacher
 simulation *-- "1" basilisk
-simulation *-- "10" item
+simulation *-- "4" item
 @enduml

@@ -8,6 +8,7 @@ package hogwartSim.dumbledore.creator{
         +dumbledoreCreator()
     }
     class DumbledoreCreator{
+        #dumbledore: Dumbledore
         +dumbledoreCreator()
     }
 IDumbledoreCreator <|-- DumbledoreCreator

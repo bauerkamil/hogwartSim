@@ -4,25 +4,29 @@ skinparam classAttributeIconSize 0
 
 package hogwartSim.dumbledore{
     interface IDumbledore{
-        - addsPoints(String): void
-        + declareWinner(pointList): String
-       '+ declareWinner(String, int): String
+        +addPoints(HogwartHouses, int): void
+        +declareWinner(): void
+        +HousesChart(): void
     }
     class Dumbledore{
-        +pointList: List<IPointGetter>
+        #housesPoints: int[]
+        -filepath: String
 
         +Dumbledore()
-        - addsPoints(String): void
-        + declareWinner(String, int): String
+        +addPoints(HogwartHouses, int): void
+        +declareWinner(): void
+        +HousesChart(): void
     }
 
 IDumbledore <|-- Dumbledore
 }
 
 package hogwartSim.general{
-    interface IPointGetter
+    interface Wizard
+    enum HogwartHouses
 }
 
-IDumbledore - IPointGetter
+IDumbledore - Wizard
+IDumbledore - HogwartHouses
 
 @enduml

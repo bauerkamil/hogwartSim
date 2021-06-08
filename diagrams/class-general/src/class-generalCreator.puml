@@ -4,21 +4,29 @@
 skinparam classAttributeIconSize 0
 
 package hogwartSim.general.creator{
-    interface IGeneralCreator{
-        +createGeneral(IMap): List <IGeneral>
+    interface ICreatureCreator{
+        + createCreatures(IMap map, IDumbledore dumbledore): List<ICreature>
+        + sortingHat(int wizardNumber): HogwartHouses
     }
-    class GeneralCreator{
+    class CreatureCreator{
         #numStudents: int
         #numTeachers: int
-        #numBeers: int
-        #numBasilisks: int
 
-        +GeneralCreator(int, int, int, int)
-        +GeneralCreator()
-        +createGeneral(IMap): List <IGeneral>
-        +sortingHat(Wizard): String
+        + CreatureCreator(int, int)
+        + createCreatures(IMap, IDumbledore): List<ICreature>
+        + sortingHat(int): HogwartHouses
     }
-IGeneralCreator <|-- GeneralCreator
+    interface IItemCreator{
+        + createItems(IMap): List<IItem>
+    }
+    class ItemCreator{
+        #numBeers: int
+
+        + ItemCreator(int)
+        + createItems(IMap): List<IItem>
+    }
+ICreatureCreator <|-- CreatureCreator
+IItemCreator <|-- ItemCreator
 }
 
 @enduml

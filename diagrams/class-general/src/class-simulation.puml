@@ -2,16 +2,19 @@
 'https://plantuml.com/class-diagram
 
 skinparam classAttributeIconSize 0
+skinparam maxMessageSize 125
 
 package hogwartSim{
     class Simulation{
-        -map: IMap
-        -rnd: Rnd
-        -generalList: List<IGeneral>
-        -numIter: int
-        -pointList: List<IPointGetter>
+        - map: IMap
+        - dumbledore: IDumbledore
+        - rnd: Random
+        - creatureList: List<ICreature>
+        - itemList: List<IItem>
+        - maxIter: final int
 
-        +Simulation(IMapCreator, IGeneralCreator, IDumbledoreCreator, long, int)
+        +Simulation(MapCreator, ICreatureCreator,
+        IItemCreator, IDumbledoreCreator, long, int)
         +runSimulation(): void
         +main(String[]): void
     }

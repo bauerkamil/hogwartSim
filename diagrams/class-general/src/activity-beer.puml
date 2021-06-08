@@ -8,7 +8,6 @@ start
 partition Running {
     repeat
         if (Is the beer being used?) then (yes)
-            :Add points;
             :Get used;
             kill
         else (no)

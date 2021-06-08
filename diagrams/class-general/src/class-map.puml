@@ -5,26 +5,46 @@ skinparam classAttributeIconSize 0
 
 package hogwartSim.map{
     interface IMap{
-        +getSize(): int
-        +getGeneral(int): IGeneral
-        +getXPosition(IGeneral): int
-        +getYPosition(IGeneral): int
+            + getCreatures(): List<ICreature>
+            + randomLocate(ICreature): void
+            + randomRelocate(ICreature): void
+            + randomLocate(IItem): void
+            + getAtPosition(PositionXY): List<ICreature>
+            + getItemsAtPosition(PositionXY): List<IItem>
+            + getPosition(ICreature): PositionXY
+            + removeFromMap(ICreature): void
+            + removeFromMap(IItem): void
     }
     class MaraudersMap{
-        -general: IGeneral[]
-        -generalPosition: Map<IGeneral, Integer, Integer>
+        - rnd: Random
+        - mapSize: int
+        - creaturePosition: Map<ICreature, PositionXY>
+        - itemPosition: Map<IItem, PositionXY>
 
-        +MaraudersMap(int, int)
-        +getSize(): int
-        +getGeneral(int): IGeneral
-        +getXPosition(IGeneral): int
-        +getYPosition(IGeneral): int
-}
+        + getCreatures(): List<ICreature>
+        + randomLocate(ICreature): void
+        + randomRelocate(ICreature): void
+        + randomLocate(IItem): void
+        + getAtPosition(PositionXY): List<ICreature>
+        + getItemsAtPosition(PositionXY): List<IItem>
+        + getPosition(ICreature): PositionXY
+        + removeFromMap(ICreature): void
+        + removeFromMap(IItem): void
+    }
+    class PositionXY{
+        + x: int
+        +y: int
+        +equals(Object): boolean
+    }
+
 IMap <|-- MaraudersMap
+PositionXY --* IMap
 }
 package hogwartSim.general{
-    interface IGeneral
+    interface ICreature
+    interface IItem
 }
-IMap - IGeneral
+IMap - ICreature
+IMap - IItem
 
 @enduml

@@ -3,8 +3,8 @@
 
 start
 
-:Get sorted into a house;
 :Put teachers on the map;
+:Get sorted into a house;
 
 partition Running {
     repeat

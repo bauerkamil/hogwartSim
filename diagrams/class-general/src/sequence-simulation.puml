@@ -4,18 +4,23 @@ skinparam maxMessageSize 125
 
 actor Actor
 
-Actor -> Simulation: Sets: space size, number of students and iterations
+Actor -> Simulation: Sets: space size, number of students, teachers and iterations
 Simulation -> MaraudersMap: Initialize and put objects on map
 
     loop Until numIter is reached
-       Simulation -> General: Student's move
-       Simulation -> General: Teacher's move
-       Simulation -> General: Basilisk's move
+       Simulation -> Student: Student's move
+       Simulation <- Student
+       Simulation -> Teacher: Teacher's move
+       Simulation <- Teacher
+       Simulation -> Basilisk: Basilisk's move
+       Simulation <- Basilisk
+       Simulation -> Dumbledore: Save house points for iteration
+       Simulation <- Dumbledore
     end
     ||||
     Simulation -> Dumbledore: Dumbledore's last turn
     Dumbledore -> Dumbledore: Add 50 points to Gryffindor
-    Dumbledore -> Simulation: Get winner
+    Dumbledore -> Simulation: Get winner and house points
 
 Simulation -> Actor: Give results
 @enduml

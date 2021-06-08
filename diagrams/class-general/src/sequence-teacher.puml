@@ -5,26 +5,36 @@ skinparam maxMessageSize 100
 'autonumber
 
 
-[-> General: Teacher's move
-activate General
-General -> General: Generate random location to move
-
-General -> Teacher: Move
+[-> Teacher: Teacher's move
 activate Teacher
+
 Teacher -> MaraudersMap: Change position
 activate MaraudersMap
+MaraudersMap -> MaraudersMap: Generate random location and move
+Teacher<- MaraudersMap
+deactivate MaraudersMap
+
+
+Teacher -> InteractionAgent: Action
+activate InteractionAgent
+InteractionAgent -> MaraudersMap: Get creatures on position
+activate MaraudersMap
 MaraudersMap -> MaraudersMap: Check position
+InteractionAgent <- MaraudersMap: Creatures on position
+deactivate MaraudersMap
 
 alt Student on same position as teacher
-         MaraudersMap -> Teacher: Teacher on same position
-         activate Teacher
-         Teacher -> Dumbledore: Add points
-         deactivate Teacher
+         InteractionAgent -> Teacher: Student on same position
+         Teacher -> Student: Get house
+         activate Student
+         Teacher <- Student: Student's house
+         deactivate Student
+         Teacher -> Dumbledore: Add or subtract points
 end
-MaraudersMap -> Teacher: Done
-deactivate MaraudersMap
-Teacher -> General: Done
+InteractionAgent -> Teacher: Done
+deactivate InteractionAgent
+<- Teacher: Done
 deactivate Teacher
-<- General: Done
-deactivate General
+
+
 @enduml

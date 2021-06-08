@@ -3,8 +3,9 @@
 
 start
 
-:Get sorted into a house;
 :Put students on the map;
+:Get sorted into a house;
+
 
 partition Running {
     repeat
@@ -18,12 +19,14 @@ partition Running {
             :Move to another location;
             if (Map checks if anything is on this position?) then (yes)
                 if (Is this a basilisk?) then (yes)
+                    :Activate basilisk;
                     :Die;
                     kill
                 elseif (Is this a teacher?) then (yes)
-                    :Add points;
+                    :Activate teacher;
                 elseif (Is this an item?) then (yes)
                     :Use item;
+                    :Add points;
                 endif
             else (no)
             endif

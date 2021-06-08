@@ -16,9 +16,9 @@ activate MaraudersMap
 MaraudersMap -> MaraudersMap: Check position
 alt Student on same position as basilsk
         MaraudersMap -> Basilisk: Student on same position
-        activate Basilisk
+'        activate Basilisk
         Basilisk -> Student: Kill
-        deactivate Basilisk
+'        deactivate Basilisk
         activate Student
         Student -> Student: Get killed
         destroy Student

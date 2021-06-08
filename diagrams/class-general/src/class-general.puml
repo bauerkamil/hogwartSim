@@ -4,85 +4,80 @@ skinparam classAttributeIconSize 0
 
 package "hogwartSim.general" {
 
-    interface IRandomizable{
-        +getSeed(): long
-        +setSeed(long): long
-    }
-    interface IGeneral{
-        +getMap(): IMap
-        +setMap(IMap): void
-    }
-    abstract class "General"{
-        #rnd: Rnd
-        #seed: long
-        #map: IMap
 
-        +General(IMap)
-        +getSeed(): long
-        +setSeed(long): long
-        +getMap(): IMap
-        +setMap(IMap): void
-    }
     interface ICreature{
         +move(): void
     }
     abstract class Creature{
-        +Creature(String)
+        +Creature(IMap)
         +move(): void
     }
-'class House{
-'   #memberList: List<Wizard>
-'   -sortingHat(String): String
-'}
+
     interface IKill{
         +kill(Student): void
     }
     class Basilisk{
-        +Basilisk(String)
+        +Basilisk(IMap map)
         +kill(Student): void
+        +move(): void
     }
     interface IUseItem{
         +useItem(Item): void
     }
     abstract class Wizard{
-        #house: String
+        #house: HogwartHouses
+        #dumbledore: IDumbledore
 
-        +Wizard(String, String)
+        +Wizard(IMap, HogwartHouses, IDumbledore)
+        +isTheSameHouse(Wizard, Wizard): boolean
+    }
+    enum HogwartHouses{
+        GRYFFINDOR
+        SLYTHERIN
+        HUFFLEPUFF
+        RAVENCLAW
+
+        +valueOfHouse(int): HogwartHouses
+        +size(): int
+        +getValue(): int
     }
     class Student{
-        #isAlive: boolean
+        -isAlive: boolean
+        #pointsForBeer: int
 
-        +Student(String, String)
+        +Student(IMap, HogwartHouses, IDumbledore)
+        +getIsAlive(): boolean
         +useItem(Item): void
         +die(): void
+        +move(): void
     }
-    interface IPointGetter{
-        +addPoints(String): void
-    }
+
     class Teacher{
-        +Teacher(String, String)
-        +isTheSameHouse(String): boolean
-        +addPoints(String): void
+        #pointsForDifferentHouse: int
+        #pointsForSameHouse: int
+
+        +Teacher(IMap, HogwartHouses, IDumbledore)
+        +meetStudent(Student): void
+    }
+    interface IItem{
+        +getused(): void
     }
     abstract class Item{
+        #map: IMap
         #isUsed: boolean
 
-        +Item(String)
         +getUsed(): void
-        +addPoints(String): void
     }
     class ButterBeer{
-        +ButterBeer(String)
+        +ButterBeer(IMap)
     }
-IGeneral <|-- General
-IRandomizable <|-- General
+
 IKill <|-- Basilisk
-'House *-- Wizard
-IPointGetter <|-- Teacher
-IPointGetter <|-- Item
+HogwartHouses --o Wizard
+
+IItem <|-- Item
 Item <|-- ButterBeer
-General *-- ICreature
-General *-- Item
+
 ICreature <|-- Creature
 Creature <|-- Basilisk
 Creature <|-- Wizard
