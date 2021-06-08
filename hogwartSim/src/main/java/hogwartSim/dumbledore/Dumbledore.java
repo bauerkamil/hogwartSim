@@ -50,14 +50,14 @@ public class Dumbledore implements IDumbledore {
 
     }
 
-   public void HousesChart(int [] studentCounter) {
+   public void HousesChart() {
 
        System.out.println(HogwartHouses.GRYFFINDOR + ": " + housesPoints[0]);
        System.out.println(HogwartHouses.SLYTHERIN + ": " + housesPoints[1]);
        System.out.println(HogwartHouses.HUFFLEPUFF + ": " + housesPoints[2]);
        System.out.println(HogwartHouses.RAVENCLAW + ": " + housesPoints[3]);
        System.out.println("------------------------------------------");
-       System.out.println(studentCounter[0]);
+
 
 
         try {
