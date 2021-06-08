@@ -58,15 +58,16 @@ public class Simulation {
 //        Repeats cycles until maximum number of iterations is reached
         for (int cycleNumber = 0; cycleNumber < maxIter; cycleNumber++) {
 
+            System.out.println(cycleNumber+1 + " day");
+
 //            Moves each creature on the list
             for(ICreature iCreature : map.getCreatures()){
                 iCreature.move();
             }
-            System.out.println(cycleNumber+1);
+
             dumbledore.HousesChart();
         }
         dumbledore.declareWinner();
-        dumbledore.HousesChart();
 
     }
 

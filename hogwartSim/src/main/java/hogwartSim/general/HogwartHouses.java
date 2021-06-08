@@ -2,6 +2,7 @@ package hogwartSim.general;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public enum HogwartHouses {
     GRYFFINDOR(0),
@@ -12,6 +13,7 @@ public enum HogwartHouses {
     private final int value;
 
     private static Map houseMap = new HashMap();
+
     private HogwartHouses(int value) {
         this.value = value;
     }
@@ -26,9 +28,12 @@ public enum HogwartHouses {
         return (HogwartHouses) houseMap.get(houseValue);
     }
 
-    public static int size(){return houseMap.size();}
+    public static int size() {
+        return houseMap.size();
+    }
 
     public int getValue() {
         return value;
     }
+
 }
