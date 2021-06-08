@@ -72,6 +72,8 @@ package "hogwartSim.general" {
         +ButterBeer(IMap)
     }
 
+
+
 IKill <|-- Basilisk
 HogwartHouses --o Wizard
 
@@ -88,4 +90,12 @@ Student - Teacher
 Student - ButterBeer
 Student - Basilisk
 }
+package interactions{
+     interface IInteractionAgent{
+
+     }
+}
+Teacher -- IInteractionAgent
+Student -- IInteractionAgent
+Basilisk -- IInteractionAgent
 @enduml
