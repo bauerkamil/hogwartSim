@@ -14,6 +14,7 @@ public class CreatureCreator implements ICreatureCreator {
 
     protected int numStudents;
     protected int numTeachers;
+    public int [] studentCounter = new int[HogwartHouses.size()];
 
     public CreatureCreator(int numStudents, int numTeachers){
         this.numStudents = numStudents;
@@ -50,6 +51,12 @@ public class CreatureCreator implements ICreatureCreator {
      * @return Returns the chosen House
      */
     public HogwartHouses sortingHat(int wizardNumber){
+
+        if (wizardNumber % HogwartHouses.size() == 0) studentCounter[0]++;
+        else if (wizardNumber % HogwartHouses.size() == 1) studentCounter[1]++;
+        else if (wizardNumber % HogwartHouses.size() == 2) studentCounter[2]++;
+        else if (wizardNumber % HogwartHouses.size() == 3) studentCounter[3]++;
+
         return HogwartHouses.valueOfHouse(wizardNumber % HogwartHouses.size());
     }
 

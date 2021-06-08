@@ -63,10 +63,11 @@ public class Simulation {
                 iCreature.move();
             }
             System.out.println(cycleNumber+1);
-            dumbledore.HousesChart();
+            dumbledore.HousesChart(studentCounter);
         }
         dumbledore.declareWinner();
-        dumbledore.HousesChart();
+        dumbledore.HousesChart(studentCounter);
+
 
     }
 
