@@ -20,7 +20,7 @@ import java.util.Random;
 /**
  * Class responsible for running the simulation
  */
-public class Simulation {
+public class  Simulation {
     private IMap map;
     private IDumbledore dumbledore;
     private Random rnd;
@@ -58,16 +58,16 @@ public class Simulation {
 //        Repeats cycles until maximum number of iterations is reached
         for (int cycleNumber = 0; cycleNumber < maxIter; cycleNumber++) {
 
-            System.out.println(cycleNumber+1 + " day");
-
 //            Moves each creature on the list
             for(ICreature iCreature : map.getCreatures()){
                 iCreature.move();
             }
-
+            System.out.println(cycleNumber+1);
             dumbledore.HousesChart();
         }
-        dumbledore.declareWinner();
+        System.out.println(dumbledore.declareWinner() + " wins the House Cup");
+        dumbledore.HousesChart();
+
 
     }
 

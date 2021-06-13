@@ -52,5 +52,4 @@ public class CreatureCreator implements ICreatureCreator {
     public HogwartHouses sortingHat(int wizardNumber){
         return HogwartHouses.valueOfHouse(wizardNumber % HogwartHouses.size());
     }
-
 }

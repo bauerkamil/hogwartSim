@@ -1,7 +1,7 @@
 package hogwartSim.dumbledore;
 
 import hogwartSim.general.HogwartHouses;
-
+import hogwartSim.general.creator.CreatureCreator;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,33 +30,34 @@ public class Dumbledore implements IDumbledore {
     /**
      * Adds 50 points to Gryffindor and checks which house has the most points
      */
-    public void declareWinner() {
+    public String declareWinner() {
         addPoints(HogwartHouses.GRYFFINDOR, 50);
         int max = housesPoints[0];
-        for(int i = 0; i < housesPoints.length; i++){
+        for (int i = 0; i < 4; i++) {
             if (max < housesPoints[i]) {
                 max = housesPoints[i];
             }
         }
-
-        for(int j = 0; j < housesPoints.length; j++){
-            if (max == housesPoints[j]){
-                System.out.println(HogwartHouses.valueOfHouse(j) + " wins the House Cup");
-            }
+        if (max == housesPoints[0]) {
+            return "Gryffindor";
+        } else if (max == housesPoints[1]) {
+            return "Slytherin";
+        } else if (max == housesPoints[2]) {
+            return "Hufflepuff";
+        } else {
+            return "Ravenclaw";
         }
-
-        System.out.println("Total number of points:");
-        HousesChart();
 
     }
 
    public void HousesChart() {
 
-       for(int i = 0; i < housesPoints.length; i++){
-           System.out.println(HogwartHouses.valueOfHouse(i) + ": " + housesPoints[i]);
-       }
-
+       System.out.println(HogwartHouses.GRYFFINDOR + ": " + housesPoints[0]);
+       System.out.println(HogwartHouses.SLYTHERIN + ": " + housesPoints[1]);
+       System.out.println(HogwartHouses.HUFFLEPUFF + ": " + housesPoints[2]);
+       System.out.println(HogwartHouses.RAVENCLAW + ": " + housesPoints[3]);
        System.out.println("------------------------------------------");
+
 
 
         try {
@@ -66,10 +67,10 @@ public class Dumbledore implements IDumbledore {
             BufferedWriter bufferedW = new BufferedWriter(fileW);
             PrintWriter printW = new PrintWriter(bufferedW);
 
-            for(int i = 0; i < housesPoints.length; i++){
-                printW.print(HogwartHouses.valueOfHouse(i) + ";" + housesPoints[i] + ";");
-            }
-
+            printW.println(HogwartHouses.GRYFFINDOR+";"+housesPoints[0]);
+            printW.println(HogwartHouses.SLYTHERIN+";"+housesPoints[1]);
+            printW.println(HogwartHouses.HUFFLEPUFF+";"+housesPoints[2]);
+            printW.println(HogwartHouses.RAVENCLAW+";"+housesPoints[3]);
             printW.println(" ");
 
             printW.flush();
