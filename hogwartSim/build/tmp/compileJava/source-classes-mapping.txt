@@ -16,16 +16,16 @@ hogwartSim/interactions/InteractionAgent.java
  hogwartSim.interactions.InteractionAgent
 hogwartSim/map/PositionXY.java
  hogwartSim.map.PositionXY
-hogwartSim/general/Creature.java
- hogwartSim.general.Creature
+hogwartSim/Simulation.java
+ hogwartSim.Simulation
 hogwartSim/map/IMap.java
  hogwartSim.map.IMap
 hogwartSim/map/creator/IMapCreator.java
  hogwartSim.map.creator.IMapCreator
 hogwartSim/general/HogwartHouses.java
  hogwartSim.general.HogwartHouses
-hogwartSim/dumbledore/creator/DumbledoreCreator.java
- hogwartSim.dumbledore.creator.DumbledoreCreator
+hogwartSim/general/Creature.java
+ hogwartSim.general.Creature
 hogwartSim/dumbledore/creator/IDumbledoreCreator.java
  hogwartSim.dumbledore.creator.IDumbledoreCreator
 hogwartSim/general/creator/ItemCreator.java
@@ -50,5 +50,5 @@ hogwartSim/map/MaraudersMap.java
  hogwartSim.map.MaraudersMap
 hogwartSim/dumbledore/Dumbledore.java
  hogwartSim.dumbledore.Dumbledore
-hogwartSim/Simulation.java
- hogwartSim.Simulation
+hogwartSim/dumbledore/creator/DumbledoreCreator.java
+ hogwartSim.dumbledore.creator.DumbledoreCreator

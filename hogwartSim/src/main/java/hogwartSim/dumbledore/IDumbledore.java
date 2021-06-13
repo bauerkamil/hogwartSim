@@ -6,7 +6,7 @@ public interface IDumbledore {
 
     public void addPoints(HogwartHouses house, int points);
 
-    public String declareWinner();
+    public void declareWinner();
 
     void HousesChart();
 }
