@@ -20,7 +20,7 @@ import java.util.Random;
 /**
  * Class responsible for running the simulation
  */
-public class Simulation {
+public class  Simulation {
     private IMap map;
     private IDumbledore dumbledore;
     private Random rnd;
@@ -65,7 +65,7 @@ public class Simulation {
             System.out.println(cycleNumber+1);
             dumbledore.HousesChart();
         }
-        dumbledore.declareWinner();
+        System.out.println(dumbledore.declareWinner() + " wins the House Cup");
         dumbledore.HousesChart();
 
 

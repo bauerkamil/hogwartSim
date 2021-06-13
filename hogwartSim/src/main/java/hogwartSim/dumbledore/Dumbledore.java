@@ -30,7 +30,7 @@ public class Dumbledore implements IDumbledore {
     /**
      * Adds 50 points to Gryffindor and checks which house has the most points
      */
-    public void declareWinner() {
+    public String declareWinner() {
         addPoints(HogwartHouses.GRYFFINDOR, 50);
         int max = housesPoints[0];
         for (int i = 0; i < 4; i++) {
@@ -39,13 +39,13 @@ public class Dumbledore implements IDumbledore {
             }
         }
         if (max == housesPoints[0]) {
-            System.out.println("Gryffindor wins the House Cup");
+            return "Gryffindor";
         } else if (max == housesPoints[1]) {
-            System.out.println("Slytherin wins the House Cup");
+            return "Slytherin";
         } else if (max == housesPoints[2]) {
-            System.out.println("Hufflepuff wins the House Cup");
+            return "Hufflepuff";
         } else {
-            System.out.println("Ravenclaw wins the House Cup");
+            return "Ravenclaw";
         }
 
     }
