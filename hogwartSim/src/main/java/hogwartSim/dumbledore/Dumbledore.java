@@ -42,8 +42,12 @@ public class Dumbledore implements IDumbledore {
                 max = housesPoints[i];
                 winningHouse = HogwartHouses.getNameOfHouse(i);
             }
-//            don't add points to housesPoints[0] in first iteration
-            if (max == housesPoints[i] && i != 0) {
+
+        }
+
+        for (int i = 0; i < housesPoints.length; i++) {
+
+            if (max == housesPoints[i] && i != winningHouse.getValue()) {
                 housesPoints[i] += pointsForTie;
                 max += pointsForTie;
                 System.out.println("Dumbledore really wants house " + HogwartHouses.getNameOfHouse(i) + " to win, so he added them " + pointsForTie + " points.");
