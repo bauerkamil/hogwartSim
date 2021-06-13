@@ -4,7 +4,7 @@ import hogwartSim.dumbledore.IDumbledore;
 import hogwartSim.map.IMap;
 
 /**
- * Abstract class responsible for checking the House
+ * Abstract class, that has a house parameter
  */
 public abstract class Wizard extends Creature  {
     protected HogwartHouses house;

@@ -13,8 +13,16 @@ public class Student extends Wizard {
         this.isAlive = true;
     }
 
+    /**
+     * get state of student, whether alive or not
+     * @return
+     */
     public boolean getIsAlive(){return this.isAlive;}
 
+    /**
+     * get house of the student
+     * @return
+     */
     public HogwartHouses getHouse() {
         return house;
     }

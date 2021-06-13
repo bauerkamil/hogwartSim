@@ -3,7 +3,7 @@ package hogwartSim.general;
 import hogwartSim.map.IMap;
 
 /**
- * Abstract class associated with usage of butterbeers
+ * Abstract class associated with usage of butterbeers, might be expanded in the future
  */
 public abstract class Item implements IItem {
     protected boolean isUsed;

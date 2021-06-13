@@ -35,19 +35,19 @@ public class Dumbledore implements IDumbledore {
         addPoints(HogwartHouses.GRYFFINDOR, 50);
 
         int max = housesPoints[0];
-        HogwartHouses winningHouse = HogwartHouses.valueOfHouse(0);
+        HogwartHouses winningHouse = HogwartHouses.getNameOfHouse(0);
 
         for(int i = 0; i < housesPoints.length; i++){
             if (max < housesPoints[i]) {
                 max = housesPoints[i];
-                winningHouse = HogwartHouses.valueOfHouse(i);
+                winningHouse = HogwartHouses.getNameOfHouse(i);
             }
 //            don't add points to housesPoints[0] in first iteration
             if (max == housesPoints[i] && i != 0) {
                 housesPoints[i] += pointsForTie;
                 max += pointsForTie;
-                System.out.println("Dumbledore really wants house " + HogwartHouses.valueOfHouse(i) + " to win, so he added them " + pointsForTie + " points.");
-                winningHouse = HogwartHouses.valueOfHouse(i);
+                System.out.println("Dumbledore really wants house " + HogwartHouses.getNameOfHouse(i) + " to win, so he added them " + pointsForTie + " points.");
+                winningHouse = HogwartHouses.getNameOfHouse(i);
             }
         }
 
@@ -66,7 +66,7 @@ public class Dumbledore implements IDumbledore {
     public void HousesChart() {
 
        for(int i = 0; i < housesPoints.length; i++){
-           System.out.println(HogwartHouses.valueOfHouse(i) + ": " + housesPoints[i]);
+           System.out.println(HogwartHouses.getNameOfHouse(i) + ": " + housesPoints[i]);
        }
 
        System.out.println("------------------------------------------");
@@ -80,7 +80,7 @@ public class Dumbledore implements IDumbledore {
             PrintWriter printW = new PrintWriter(bufferedW);
 
             for(int i = 0; i < housesPoints.length; i++){
-                printW.print(HogwartHouses.valueOfHouse(i) + ";" + housesPoints[i] + ";");
+                printW.print(HogwartHouses.getNameOfHouse(i) + ";" + housesPoints[i] + ";");
             }
 
             printW.println(" ");
