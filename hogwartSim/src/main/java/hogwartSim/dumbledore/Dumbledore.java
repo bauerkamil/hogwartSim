@@ -14,6 +14,7 @@ import java.io.PrintWriter;
 public class Dumbledore implements IDumbledore {
     private String filepath = "HouseChart.csv";
     protected int[] housesPoints = new int[HogwartHouses.size()];
+    private int pointsForTie = 20;
     //TODO: make map from array
 
     /**
@@ -28,29 +29,41 @@ public class Dumbledore implements IDumbledore {
 
 
     /**
-     * Adds 50 points to Gryffindor and checks which house has the most points
+     * Adds 50 points to Gryffindor and declare which house has the most points
      */
     public void declareWinner() {
         addPoints(HogwartHouses.GRYFFINDOR, 50);
+
         int max = housesPoints[0];
+        HogwartHouses winningHouse = HogwartHouses.valueOfHouse(0);
+
         for(int i = 0; i < housesPoints.length; i++){
             if (max < housesPoints[i]) {
                 max = housesPoints[i];
+                winningHouse = HogwartHouses.valueOfHouse(i);
+            }
+//            don't add points to housesPoints[0] in first iteration
+            if (max == housesPoints[i] && i != 0) {
+                housesPoints[i] += pointsForTie;
+                max += pointsForTie;
+                System.out.println("Dumbledore really wants house " + HogwartHouses.valueOfHouse(i) + " to win, so he added them " + pointsForTie + " points.");
+                winningHouse = HogwartHouses.valueOfHouse(i);
             }
         }
 
-        for(int j = 0; j < housesPoints.length; j++){
-            if (max == housesPoints[j]){
-                System.out.println(HogwartHouses.valueOfHouse(j) + " wins the House Cup");
-            }
-        }
+        System.out.println(winningHouse + " wins the House Cup");
+
+
 
         System.out.println("Total number of points:");
         HousesChart();
 
     }
 
-   public void HousesChart() {
+    /**
+     * prints data in console and saves it in csv
+     */
+    public void HousesChart() {
 
        for(int i = 0; i < housesPoints.length; i++){
            System.out.println(HogwartHouses.valueOfHouse(i) + ": " + housesPoints[i]);
