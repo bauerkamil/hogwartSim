@@ -23,7 +23,7 @@ package hogwartSim{
 package hogwartSim.general{
     interface IGeneral
 }
-Simulation *- IGeneral: generalList
+Simulation *- "creatureList \n itemList" IGeneral
 
 package hogwartSim.map{
     interface IMap
@@ -33,7 +33,7 @@ Simulation *- "map" IMap
 package hogwartSim.dumbledore{
     interface IDumbledore
 }
-Simulation *- IDumbledore: pointList
+Simulation *- IDumbledore
 
 
 @enduml

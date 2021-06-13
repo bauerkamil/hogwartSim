@@ -7,12 +7,14 @@ rectangle Simulation {
   usecase "Run Simulation" as UC1
   usecase "Set space size" as UC2
   usecase "Set number of students" as UC3
+  usecase "Set number of teachers" as UC6
   usecase "Set number of iterations" as UC4
   usecase "Get results" as UC5
 }
 Actor --> UC1
 Actor --> UC2
 Actor --> UC3
+Actor --> UC6
 Actor --> UC4
 Actor --> UC5
 @enduml

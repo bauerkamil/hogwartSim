@@ -38,7 +38,7 @@ package hogwartSim.map{
     }
 
 IMap <|-- MaraudersMap
-PositionXY --* IMap
+PositionXY --* MaraudersMap
 }
 package hogwartSim.general{
     interface ICreature

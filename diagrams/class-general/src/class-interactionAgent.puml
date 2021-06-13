@@ -5,13 +5,7 @@ skinparam classAttributeIconSize 0
 
 package hogwartSim.interactions{
     interface IInteractionAgent{
-        +action(ICreature, IMap: void
-        +handleCreatureMeeting(ICreature, IMap);
-        +handleItemMeeting(ICreature, IMap);
-        +studentAction(Student, List<ICreature>): void
-        +getBasiliskFromCreatureList(List<ICreature>): List<Basilisk>
-        +teacherAction(Teacher, List<ICreature>): void
-        +basiliskAction(Basilisk, List<ICreature>): void
+
     }
     class InteractionAgent{
         +action(ICreature, IMap: void
