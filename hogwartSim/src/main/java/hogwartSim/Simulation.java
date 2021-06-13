@@ -77,11 +77,32 @@ public class Simulation {
      */
     public static void main(String[] args){
 
-        MapCreator mapCreator = new MapCreator(40, 20);
-        ICreatureCreator creatureCreator = new CreatureCreator(32, 12);
-        IItemCreator itemCreator = new ItemCreator(5);
+        int numBeers = 5;
+        long seed = 20;
+
+        if (args.length != 4){
+            System.out.println("Please declare 4 initial values for following numbers:");
+            System.out.println("map size, number of: students, teachers and iterations");
+            System.exit(0);
+        }
+
+        int[] valueOfArgs = new int[args.length];
+
+        try{
+            for(int i = 0; i < valueOfArgs.length; ++i){
+                valueOfArgs[i] = Integer.parseInt(args[i]);
+            }
+        }
+        catch (Exception c){
+            System.out.println("Parsing failed.");
+            System.exit(0);
+        }
+
+        MapCreator mapCreator = new MapCreator(valueOfArgs[0], seed);
+        ICreatureCreator creatureCreator = new CreatureCreator(valueOfArgs[1], valueOfArgs[2]);
+        IItemCreator itemCreator = new ItemCreator(numBeers);
         IDumbledoreCreator dumbledoreCreator = new DumbledoreCreator();
-        Simulation sim = new Simulation(mapCreator, creatureCreator, itemCreator, dumbledoreCreator, 1, 50);
+        Simulation sim = new Simulation(mapCreator, creatureCreator, itemCreator, dumbledoreCreator, seed, valueOfArgs[3]);
 
         sim.runSimulation();
 
