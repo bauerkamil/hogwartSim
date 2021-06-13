@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+
+:Put Butter Beers on the map;
+
+partition Running {
+    repeat
+        if (Is the beer being used?) then (yes)
+            :Get used;
+            kill
+        else (no)
+        endif
+    repeat while (Number of iterations reached?) is (no)
+->yes;
+}
+
+stop
+
+
+@enduml

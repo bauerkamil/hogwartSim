@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+partition Initialization {
+    :Get initial info;
+    :Put objects on map;
+}
+partition Running {
+    repeat
+        :Evaluate each creature move;
+    repeat while (Number of iterations reached?) is (no)
+    ->yes;
+    :Dumbledore's last turn;
+}
+
+stop
+@enduml

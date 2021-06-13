@@ -1,0 +1,101 @@
+@startuml
+'https://plantuml.com/object-diagram
+skinparam classAttributeIconSize 0
+
+package "hogwartSim.general" {
+
+
+    interface ICreature{
+        +move(): void
+    }
+    abstract class Creature{
+        +Creature(IMap)
+        +move(): void
+    }
+
+    interface IKill{
+        +kill(Student): void
+    }
+    class Basilisk{
+        +Basilisk(IMap map)
+        +kill(Student): void
+        +move(): void
+    }
+    interface IUseItem{
+        +useItem(Item): void
+    }
+    abstract class Wizard{
+        #house: HogwartHouses
+        #dumbledore: IDumbledore
+
+        +Wizard(IMap, HogwartHouses, IDumbledore)
+        +isTheSameHouse(Wizard, Wizard): boolean
+    }
+    enum HogwartHouses{
+        GRYFFINDOR
+        SLYTHERIN
+        HUFFLEPUFF
+        RAVENCLAW
+
+        +valueOfHouse(int): HogwartHouses
+        +size(): int
+        +getValue(): int
+    }
+    class Student{
+        -isAlive: boolean
+        #pointsForBeer: int
+
+        +Student(IMap, HogwartHouses, IDumbledore)
+        +getIsAlive(): boolean
+        +useItem(Item): void
+        +die(): void
+        +move(): void
+    }
+
+    class Teacher{
+        #pointsForDifferentHouse: int
+        #pointsForSameHouse: int
+
+        +Teacher(IMap, HogwartHouses, IDumbledore)
+        +meetStudent(Student): void
+    }
+    interface IItem{
+        +getused(): void
+    }
+    abstract class Item{
+        #map: IMap
+        #isUsed: boolean
+
+        +getUsed(): void
+    }
+    class ButterBeer{
+        +ButterBeer(IMap)
+    }
+
+
+
+IKill <|-- Basilisk
+HogwartHouses --o Wizard
+
+IItem <|-- Item
+Item <|-- ButterBeer
+
+ICreature <|-- Creature
+Creature <|-- Basilisk
+Creature <|-- Wizard
+Wizard <|-- Teacher
+Wizard <|-- Student
+IUseItem <|-- Student
+Student - Teacher
+Student - ButterBeer
+Student - Basilisk
+}
+package interactions{
+     interface IInteractionAgent{
+
+     }
+}
+Teacher -- IInteractionAgent
+Student -- IInteractionAgent
+Basilisk -- IInteractionAgent
+@enduml

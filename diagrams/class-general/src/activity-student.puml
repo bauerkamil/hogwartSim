@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+
+:Put students on the map;
+:Get sorted into a house;
+
+
+partition Running {
+    repeat
+        if (Is student being killed?) then (yes)
+            :Die;
+            kill
+        endif
+        -> no;
+        :Wait for student's turn;
+        partition Turn {
+            :Move to another location;
+            if (Map checks if anything is on this position?) then (yes)
+                if (Is this a basilisk?) then (yes)
+                    :Activate basilisk;
+                    :Die;
+                    kill
+                elseif (Is this a teacher?) then (yes)
+                    :Activate teacher;
+                elseif (Is this an item?) then (yes)
+                    :Use item;
+                    :Add points;
+                endif
+            else (no)
+            endif
+        }
+    repeat while (Number of iterations reached?) is (no)
+->yes;
+}
+
+stop
+
+@enduml

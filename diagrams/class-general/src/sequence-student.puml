@@ -1,0 +1,72 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+skinparam maxMessageSize 100
+'autonumber
+
+
+
+
+ [-> Student: Student's move
+activate Student
+activate Student #DarkSalmon
+Student -> MaraudersMap: Change position
+activate MaraudersMap
+MaraudersMap -> MaraudersMap: Generate random location and move
+Student <- MaraudersMap
+deactivate MaraudersMap
+
+Student -> InteractionAgent: Action
+activate InteractionAgent
+InteractionAgent -> MaraudersMap: Get creatures on position
+activate MaraudersMap
+MaraudersMap -> MaraudersMap: Check position
+InteractionAgent <- MaraudersMap: Creatures on position
+deactivate MaraudersMap
+
+alt Student on same position as basilsk
+        InteractionAgent -> Basilisk: Student on same position
+        activate Basilisk
+        Basilisk -> Student: Kill
+        Basilisk -> MaraudersMap: remove student from map
+        deactivate Basilisk
+        Student -> Student: Get killed
+        destroy Student
+else Student on same position as teacher
+         InteractionAgent -> Teacher: Student on same position
+         activate Teacher
+         Teacher -> Student: Get house
+         Teacher <- Student: Student's house
+         Teacher -> Dumbledore: Add or subtract points
+         deactivate Teacher
+
+end
+|||
+alt If alive
+
+InteractionAgent -> MaraudersMap: Get items on position
+activate MaraudersMap
+MaraudersMap -> MaraudersMap: Check items' positions
+InteractionAgent <- MaraudersMap: Items on position
+deactivate MaraudersMap
+
+alt Student on same position as item
+    InteractionAgent -> Student: Item on same position
+    Student -> MaraudersMap: Remove item from map
+    Student -> Beer: Use item
+
+    activate Beer
+
+    Beer -> Beer!!: Get used
+    Student -> Dumbledore: Add points
+end
+end
+InteractionAgent -> Student: Done
+deactivate InteractionAgent
+
+<- Student: Done
+deactivate Student
+
+
+
+
+@enduml

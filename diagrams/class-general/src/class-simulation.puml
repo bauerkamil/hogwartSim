@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+skinparam maxMessageSize 125
+
+package hogwartSim{
+    class Simulation{
+        - map: IMap
+        - dumbledore: IDumbledore
+        - rnd: Random
+        - creatureList: List<ICreature>
+        - itemList: List<IItem>
+        - maxIter: final int
+
+        +Simulation(MapCreator, ICreatureCreator,
+        IItemCreator, IDumbledoreCreator, long, int)
+        +runSimulation(): void
+        +main(String[]): void
+    }
+}
+
+package hogwartSim.general{
+    interface IGeneral
+}
+Simulation *- "creatureList \n itemList" IGeneral
+
+package hogwartSim.map{
+    interface IMap
+}
+Simulation *- "map" IMap
+
+package hogwartSim.dumbledore{
+    interface IDumbledore
+}
+Simulation *- IDumbledore
+
+
+@enduml

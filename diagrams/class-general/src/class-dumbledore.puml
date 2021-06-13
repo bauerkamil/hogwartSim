@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+
+package hogwartSim.dumbledore{
+    interface IDumbledore{
+        +addPoints(HogwartHouses, int): void
+        +declareWinner(): void
+        +HousesChart(): void
+    }
+    class Dumbledore{
+        #housesPoints: int[]
+        -filepath: String
+
+        +Dumbledore()
+        +addPoints(HogwartHouses, int): void
+        +declareWinner(): void
+        +HousesChart(): void
+    }
+
+IDumbledore <|-- Dumbledore
+}
+
+package hogwartSim.general{
+    interface Wizard
+    enum HogwartHouses
+}
+
+IDumbledore - Wizard
+IDumbledore - HogwartHouses
+
+@enduml

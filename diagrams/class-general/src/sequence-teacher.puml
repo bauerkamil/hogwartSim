@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+skinparam maxMessageSize 100
+'autonumber
+
+
+[-> Teacher: Teacher's move
+activate Teacher
+
+Teacher -> MaraudersMap: Change position
+activate MaraudersMap
+MaraudersMap -> MaraudersMap: Generate random location and move
+Teacher<- MaraudersMap
+deactivate MaraudersMap
+
+
+Teacher -> InteractionAgent: Action
+activate InteractionAgent
+InteractionAgent -> MaraudersMap: Get creatures on position
+activate MaraudersMap
+MaraudersMap -> MaraudersMap: Check position
+InteractionAgent <- MaraudersMap: Creatures on position
+deactivate MaraudersMap
+
+alt Student on same position as teacher
+         InteractionAgent -> Teacher: Student on same position
+         Teacher -> Student: Get house
+         activate Student
+         Teacher <- Student: Student's house
+         deactivate Student
+         Teacher -> Dumbledore: Add or subtract points
+end
+InteractionAgent -> Teacher: Done
+deactivate InteractionAgent
+<- Teacher: Done
+deactivate Teacher
+
+
+@enduml

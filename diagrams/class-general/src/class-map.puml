@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+
+package hogwartSim.map{
+    interface IMap{
+            + getCreatures(): List<ICreature>
+            + randomLocate(ICreature): void
+            + randomRelocate(ICreature): void
+            + randomLocate(IItem): void
+            + getAtPosition(PositionXY): List<ICreature>
+            + getItemsAtPosition(PositionXY): List<IItem>
+            + getPosition(ICreature): PositionXY
+            + removeFromMap(ICreature): void
+            + removeFromMap(IItem): void
+    }
+    class MaraudersMap{
+        - rnd: Random
+        - mapSize: int
+        - creaturePosition: Map<ICreature, PositionXY>
+        - itemPosition: Map<IItem, PositionXY>
+
+        + getCreatures(): List<ICreature>
+        + randomLocate(ICreature): void
+        + randomRelocate(ICreature): void
+        + randomLocate(IItem): void
+        + getAtPosition(PositionXY): List<ICreature>
+        + getItemsAtPosition(PositionXY): List<IItem>
+        + getPosition(ICreature): PositionXY
+        + removeFromMap(ICreature): void
+        + removeFromMap(IItem): void
+    }
+    class PositionXY{
+        + x: int
+        +y: int
+        +equals(Object): boolean
+    }
+
+IMap <|-- MaraudersMap
+PositionXY --* MaraudersMap
+}
+package hogwartSim.general{
+    interface ICreature
+    interface IItem
+}
+IMap - ICreature
+IMap - IItem
+
+@enduml

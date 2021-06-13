@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+
+package hogwartSim.general.creator{
+    interface ICreatureCreator{
+        + createCreatures(IMap map, IDumbledore dumbledore): List<ICreature>
+        + sortingHat(int wizardNumber): HogwartHouses
+    }
+    class CreatureCreator{
+        #numStudents: int
+        #numTeachers: int
+
+        + CreatureCreator(int, int)
+        + createCreatures(IMap, IDumbledore): List<ICreature>
+        + sortingHat(int): HogwartHouses
+    }
+    interface IItemCreator{
+        + createItems(IMap): List<IItem>
+    }
+    class ItemCreator{
+        #numBeers: int
+
+        + ItemCreator(int)
+        + createItems(IMap): List<IItem>
+    }
+ICreatureCreator <|-- CreatureCreator
+IItemCreator <|-- ItemCreator
+}
+
+@enduml
