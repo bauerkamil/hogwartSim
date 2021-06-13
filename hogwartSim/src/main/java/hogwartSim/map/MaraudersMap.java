@@ -12,11 +12,8 @@ public class MaraudersMap implements IMap {
 
 
     protected Random rnd;
-//    protected long seed;
     private int mapSize;
-//    private ICreature[] creatures;
     private Map<ICreature, PositionXY> creaturePosition;
-//    private IItem[] items;
     private Map<IItem, PositionXY> itemPosition;
 
 
@@ -37,6 +34,10 @@ public class MaraudersMap implements IMap {
         itemPosition = new HashMap<IItem, PositionXY>();
     }
 
+    /**
+     * get just the creatures from map
+     * @return
+     */
     public List<ICreature> getCreatures(){
         return new ArrayList(creaturePosition.keySet());
     }
@@ -72,7 +73,7 @@ public class MaraudersMap implements IMap {
 
     /**
      * Gets random coordinates
-     * @return Returns position with coordinates x and y
+     * @return Returns position with coordinates new random x and y
      */
     protected PositionXY getRandomPosition() {
         int x = rnd.nextInt(mapSize);
@@ -82,7 +83,7 @@ public class MaraudersMap implements IMap {
 
     /**
      * Gets all creatures on given position at the moment
-     * @param positionXY
+     * @param positionXY position to be checked
      * @return Returns arrayList with the creatures
      */
     public List<ICreature> getAtPosition(PositionXY positionXY){
@@ -99,7 +100,7 @@ public class MaraudersMap implements IMap {
 
     /**
      * Gets  all items on given position
-     * @param positionXY
+     * @param positionXY position to be checked
      * @return Returns arrayList with the items
      */
     public List<IItem> getItemsAtPosition(PositionXY positionXY){

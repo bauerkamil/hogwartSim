@@ -15,6 +15,10 @@ public class MapCreator implements IMapCreator {
         this.seed = seed;
     }
 
+    /**
+     * create a map
+     * @return created map
+     */
     public IMap createMap() {
         return new MaraudersMap(mapSize, seed);
     }

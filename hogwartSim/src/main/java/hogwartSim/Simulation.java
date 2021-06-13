@@ -71,6 +71,10 @@ public class Simulation {
 
     }
 
+    /**
+     * starting method
+     * @param args
+     */
     public static void main(String[] args){
 
         MapCreator mapCreator = new MapCreator(40, 20);

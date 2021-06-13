@@ -13,6 +13,11 @@ public class PositionXY {
         this.y = y;
     }
 
+    /**
+     * Override equals method to check if given object is type of PositionXY and if their parameters x and y are equal
+     * @param o given object
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
 

@@ -7,10 +7,10 @@ import hogwartSim.dumbledore.IDumbledore;
  * Class to create Dumbledore
  */
 public class DumbledoreCreator implements IDumbledoreCreator {
-    protected Dumbledore dumbledore;
+    private Dumbledore dumbledore;
 
     /**
-     * Creates Dumbledore object
+     * Creates Dumbledore object as singleton
      */
     @Override
     public IDumbledore createDumbledore() {

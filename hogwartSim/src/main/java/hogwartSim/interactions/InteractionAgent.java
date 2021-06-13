@@ -32,11 +32,12 @@ public class InteractionAgent implements IInteractionAgent {
     protected static void handleCreatureMeeting(ICreature creature, IMap map){
         List<ICreature> creaturesOnPosition = map.getAtPosition(map.getPosition(creature));
 
-
+//          check if there is anything on position and if there is something more than just one creature
         if (creaturesOnPosition == null || creaturesOnPosition.size() < 2){
             return;
         }
 
+//        remove creature that interacts from the list
         creaturesOnPosition.remove(creature);
 
         if(creature.getClass() == Student.class)
@@ -59,11 +60,13 @@ public class InteractionAgent implements IInteractionAgent {
      * @param map The map
      */
     protected static void handleItemMeeting(ICreature creature, IMap map){
+//        only students interact with objects as of now
         if (creature.getClass() != Student.class){
            return;
         }
         Student student = (Student) creature;
 
+//        don't let dead students intract
         if(!student.getIsAlive()){
             return;
         }
@@ -110,6 +113,7 @@ public class InteractionAgent implements IInteractionAgent {
 
     /**
      * Class responsible for running specific actions between teacher and other creatures
+     * adds points to all students on same position
      * @param teacher The teacher
      * @param creaturesOnPosition Other creatures on the same position as the teacher
      */
@@ -126,6 +130,7 @@ public class InteractionAgent implements IInteractionAgent {
 
     /**
      * Class responsible for running specific actions between teacher and other creatures
+     * kills all students on same position
      * @param basilisk The basilisk
      * @param creaturesOnPosition Other creatures on the same position as the basilisk
      */

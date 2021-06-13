@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Class to create students, teachers and basilisk
+ * Class to create students, teachers and one basilisk
  */
 public class CreatureCreator implements ICreatureCreator {
 
@@ -24,7 +24,7 @@ public class CreatureCreator implements ICreatureCreator {
      * Creates a basilisk, students and teachers
      * @param map The map where the objects are placed
      * @param dumbledore The object that calculates points got by certain objects
-     * @return Returns a list of creatures
+     * @return Returns a list of created creatures
      */
     @Override
     public List<ICreature> createCreatures(IMap map, IDumbledore dumbledore) {
@@ -50,7 +50,7 @@ public class CreatureCreator implements ICreatureCreator {
      * @return Returns the chosen House
      */
     public HogwartHouses sortingHat(int wizardNumber){
-        return HogwartHouses.valueOfHouse(wizardNumber % HogwartHouses.size());
+        return HogwartHouses.getNameOfHouse(wizardNumber % HogwartHouses.size());
     }
 
 }

@@ -24,14 +24,27 @@ public enum HogwartHouses {
         }
     }
 
-    public static HogwartHouses valueOfHouse(int houseValue) {
+    /**
+     * gets house based on number
+     * @param houseValue house number
+     * @return
+     */
+    public static HogwartHouses getNameOfHouse(int houseValue) {
         return (HogwartHouses) houseMap.get(houseValue);
     }
 
+    /**
+     * gets size of enum
+     * @return
+     */
     public static int size() {
         return houseMap.size();
     }
 
+    /**
+     * gets number of a house
+     * @return
+     */
     public int getValue() {
         return value;
     }
