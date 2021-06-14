@@ -67,7 +67,8 @@ public class Simulation {
 
             dumbledore.HousesChart();
         }
-        dumbledore.declareWinner();
+        System.out.println(dumbledore.declareWinner());
+        dumbledore.HousesChart();
 
     }
 

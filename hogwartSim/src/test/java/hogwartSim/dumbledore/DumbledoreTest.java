@@ -18,15 +18,15 @@ class DumbledoreTest {
         Assertions.assertEquals(50, dumbledore.housesPoints[HogwartHouses.GRYFFINDOR.getValue()]);
     }
 
-//    @Test
-//    void declareWinnerWhenSlytherinHasTheMostPoints() {
-//        //given
-//        Dumbledore dumbledore = new Dumbledore();
-//        dumbledore.housesPoints = new int[]{0, 100, 0, 0};
-//        //then
-//        Assertions.assertEquals( dumbledore.declareWinner(), "Slytherin");
-//
-//    }
+    @Test
+    void declareWinnerWhenSlytherinHasTheMostPoints() {
+        //given
+        Dumbledore dumbledore = new Dumbledore();
+        dumbledore.housesPoints = new int[]{0, 100, 0, 0};
+        //then
+        Assertions.assertEquals( dumbledore.declareWinner(), HogwartHouses.SLYTHERIN + " wins the House Cup \r\n" + "Total number of points:");
+
+    }
 //    @Test
 //    void declareWinnerToTheFirstInListIfMultipleHousesHaveTheSamePoints() {
 //        //given

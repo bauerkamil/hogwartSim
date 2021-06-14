@@ -31,7 +31,7 @@ public class Dumbledore implements IDumbledore {
     /**
      * Adds 50 points to Gryffindor and declare which house has the most points
      */
-    public void declareWinner() {
+    public String declareWinner() {
         addPoints(HogwartHouses.GRYFFINDOR, 50);
 
         int max = housesPoints[0];
@@ -55,12 +55,12 @@ public class Dumbledore implements IDumbledore {
             }
         }
 
-        System.out.println(winningHouse + " wins the House Cup");
+        return winningHouse + " wins the House Cup \r\n" + "Total number of points:";
 
 
 
-        System.out.println("Total number of points:");
-        HousesChart();
+        //return "Total number of points:";
+        //HousesChart();
 
     }
 
