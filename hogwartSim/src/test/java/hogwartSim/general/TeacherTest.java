@@ -9,15 +9,32 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TeacherTest {
 
-  /*  @Test
-    void meetStudent() {
+    @Test
+    void meetStudentFromTheSameHouse() {
         //given
         Dumbledore dumbledore = new Dumbledore();
         MaraudersMap map = new MaraudersMap(5,1);
-        Wizard wizard1 = new Teacher(map, HogwartHouses.GRYFFINDOR, dumbledore);
-        Wizard wizard2 = new Student(map, HogwartHouses.GRYFFINDOR, dumbledore);
+        Teacher teacher = new Teacher(map, HogwartHouses.RAVENCLAW, dumbledore);
+        Student student = new Student(map, HogwartHouses.RAVENCLAW, dumbledore);
+        //when
+        teacher.meetStudent(student);
+        teacher.meetStudent(student); //Making sure to win with Gryffindor
         //then
-
+        Assertions.assertEquals(dumbledore.declareWinner(), HogwartHouses.RAVENCLAW);
     }
-    }*/
+    @Test
+    void meetStudentFromDifferentHouse() {
+        //given
+        Dumbledore dumbledore = new Dumbledore();
+        MaraudersMap map = new MaraudersMap(5,1);
+        Teacher teacher = new Teacher(map, HogwartHouses.RAVENCLAW, dumbledore);
+        Student student = new Student(map, HogwartHouses.GRYFFINDOR, dumbledore);
+        //when
+        teacher.meetStudent(student);
+        teacher.meetStudent(student);
+        teacher.meetStudent(student); //Making sure that Gryffindor will lose
+        //then
+        Assertions.assertEquals(dumbledore.declareWinner(), HogwartHouses.HUFFLEPUFF);
+    }
+
 }

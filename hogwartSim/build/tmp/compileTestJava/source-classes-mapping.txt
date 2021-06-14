@@ -1,6 +1,10 @@
-hogwartSim/general/TeacherTest.java
- hogwartSim.general.TeacherTest
 hogwartSim/dumbledore/DumbledoreTest.java
  hogwartSim.dumbledore.DumbledoreTest
 hogwartSim/general/WizardTest.java
  hogwartSim.general.WizardTest
+hogwartSim/general/TeacherTest.java
+ hogwartSim.general.TeacherTest
+hogwartSim/general/StudentTest.java
+ hogwartSim.general.StudentTest
+hogwartSim/general/BasiliskTest.java
+ hogwartSim.general.BasiliskTest
