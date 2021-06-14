@@ -67,7 +67,7 @@ public class Simulation {
 
             dumbledore.HousesChart();
         }
-        System.out.println(dumbledore.declareWinner());
+        System.out.println(dumbledore.declareWinner() + " wins the House Cup \r\nTotal number of points:");
         dumbledore.HousesChart();
 
     }

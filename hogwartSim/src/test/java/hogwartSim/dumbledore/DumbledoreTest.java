@@ -24,18 +24,18 @@ class DumbledoreTest {
         Dumbledore dumbledore = new Dumbledore();
         dumbledore.housesPoints = new int[]{0, 100, 0, 0};
         //then
-        Assertions.assertEquals( dumbledore.declareWinner(), HogwartHouses.SLYTHERIN + " wins the House Cup \r\n" + "Total number of points:");
+        Assertions.assertEquals( dumbledore.declareWinner(), HogwartHouses.SLYTHERIN);
 
     }
-//    @Test
-//    void declareWinnerToTheFirstInListIfMultipleHousesHaveTheSamePoints() {
-//        //given
-//        Dumbledore dumbledore = new Dumbledore();
-//        dumbledore.housesPoints = new int[]{50, 100, 0, 100}; //Dumbledore adds 50 points to Gryffindor when declaring the Winner
-//        //then
-//        Assertions.assertEquals( dumbledore.declareWinner(), "Gryffindor");
-//
-//    }
+   /* @Test
+    void declareWinnerIfMultipleHousesHaveTheSamePoints() {
+        //given
+        Dumbledore dumbledore = new Dumbledore();
+        dumbledore.housesPoints = new int[]{0, 100, 0, 100};
+        //then
+        Assertions.assertEquals( dumbledore.declareWinner(), "Gryffindor");
+
+    }*/
 //    @Test
 //    void declareWinnerWhenNumbersAreNegative() {
 //        //given

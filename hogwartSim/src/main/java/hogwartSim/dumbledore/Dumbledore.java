@@ -31,7 +31,7 @@ public class Dumbledore implements IDumbledore {
     /**
      * Adds 50 points to Gryffindor and declare which house has the most points
      */
-    public String declareWinner() {
+    public HogwartHouses declareWinner() {
         addPoints(HogwartHouses.GRYFFINDOR, 50);
 
         int max = housesPoints[0];
@@ -55,7 +55,7 @@ public class Dumbledore implements IDumbledore {
             }
         }
 
-        return winningHouse + " wins the House Cup \r\n" + "Total number of points:";
+        return winningHouse;
 
 
 
