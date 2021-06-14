@@ -19,7 +19,7 @@ class DumbledoreTest {
     }
 
     @Test
-    void declareWinnerWhenSlytherinHasTheMostPoints() {
+    void declareWinner_WhenSlytherinHasTheMostPoints() {
         //given
         Dumbledore dumbledore = new Dumbledore();
         dumbledore.housesPoints = new int[]{0, 100, 0, 0};
@@ -27,22 +27,31 @@ class DumbledoreTest {
         Assertions.assertEquals( dumbledore.declareWinner(), HogwartHouses.SLYTHERIN);
 
     }
-   /* @Test
-    void declareWinnerIfMultipleHousesHaveTheSamePoints() {
+    @Test
+    void declareWinner_IfTwoHousesHaveTheSamePoints_TheSecondOneWins() {
         //given
         Dumbledore dumbledore = new Dumbledore();
-        dumbledore.housesPoints = new int[]{0, 100, 0, 100};
+        dumbledore.housesPoints = new int[]{0, 100, 0, 100}; //Slytherin and Ravenclaw have the same amount of points
         //then
-        Assertions.assertEquals( dumbledore.declareWinner(), "Gryffindor");
+        Assertions.assertEquals( dumbledore.declareWinner(), HogwartHouses.RAVENCLAW);
 
-    }*/
-//    @Test
-//    void declareWinnerWhenNumbersAreNegative() {
-//        //given
-//        Dumbledore dumbledore = new Dumbledore();
-//        dumbledore.housesPoints = new int[]{-100,-100, -10, -200};
-//        //then
-//        Assertions.assertEquals( dumbledore.declareWinner(), "Hufflepuff");
-//
-//    }
+    }
+    @Test
+    void declareWinner_IfThreeHousesHaveTheSamePoints_TheSecondOneWins() {
+        //given
+        Dumbledore dumbledore = new Dumbledore();
+        dumbledore.housesPoints = new int[]{0, 100, 100, 100}; //Slytherin, Hufflepuff and Ravenclaw have the same amount of points
+        //then
+        Assertions.assertEquals( dumbledore.declareWinner(), HogwartHouses.HUFFLEPUFF);
+
+    }
+    @Test
+    void declareWinnerWhenNumbersAreNegative() {
+        //given
+        Dumbledore dumbledore = new Dumbledore();
+        dumbledore.housesPoints = new int[]{-100,-100, -10, -200};
+        //then
+        Assertions.assertEquals( dumbledore.declareWinner(), HogwartHouses.HUFFLEPUFF);
+
+    }
 }

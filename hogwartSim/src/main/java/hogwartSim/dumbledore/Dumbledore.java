@@ -57,11 +57,6 @@ public class Dumbledore implements IDumbledore {
 
         return winningHouse;
 
-
-
-        //return "Total number of points:";
-        //HousesChart();
-
     }
 
     /**
