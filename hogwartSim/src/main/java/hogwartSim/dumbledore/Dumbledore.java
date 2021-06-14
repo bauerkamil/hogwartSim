@@ -12,7 +12,7 @@ import java.io.PrintWriter;
  * Class to count the points and to declare a winner
  */
 public class Dumbledore implements IDumbledore {
-     String filepath = "HouseChart.csv";
+    private String filepath = "HouseChart.csv";
     protected int[] housesPoints = new int[HogwartHouses.size()];
     private int pointsForTie = 20;
     //TODO: make map from array

@@ -6,8 +6,8 @@ hogwartSim/interactions/IInteractionAgent.java
  hogwartSim.interactions.IInteractionAgent
 hogwartSim/general/ICreature.java
  hogwartSim.general.ICreature
-hogwartSim/map/MaraudersMap.java
- hogwartSim.map.MaraudersMap
+hogwartSim/general/creator/ICreatureCreator.java
+ hogwartSim.general.creator.ICreatureCreator
 hogwartSim/general/IItem.java
  hogwartSim.general.IItem
 hogwartSim/general/ButterBeer.java
@@ -24,31 +24,31 @@ hogwartSim/map/creator/IMapCreator.java
  hogwartSim.map.creator.IMapCreator
 hogwartSim/general/HogwartHouses.java
  hogwartSim.general.HogwartHouses
-hogwartSim/map/creator/MapCreator.java
- hogwartSim.map.creator.MapCreator
+hogwartSim/dumbledore/Dumbledore.java
+ hogwartSim.dumbledore.Dumbledore
 hogwartSim/general/Wizard.java
  hogwartSim.general.Wizard
 hogwartSim/general/Basilisk.java
  hogwartSim.general.Basilisk
 hogwartSim/general/IKill.java
  hogwartSim.general.IKill
-hogwartSim/general/creator/CreatureCreator.java
- hogwartSim.general.creator.CreatureCreator
+hogwartSim/dumbledore/creator/DumbledoreCreator.java
+ hogwartSim.dumbledore.creator.DumbledoreCreator
 hogwartSim/general/Student.java
  hogwartSim.general.Student
 hogwartSim/Simulation.java
  hogwartSim.Simulation
 hogwartSim/dumbledore/creator/IDumbledoreCreator.java
  hogwartSim.dumbledore.creator.IDumbledoreCreator
-hogwartSim/general/Teacher.java
- hogwartSim.general.Teacher
+hogwartSim/map/MaraudersMap.java
+ hogwartSim.map.MaraudersMap
 hogwartSim/dumbledore/IDumbledore.java
  hogwartSim.dumbledore.IDumbledore
+hogwartSim/map/creator/MapCreator.java
+ hogwartSim.map.creator.MapCreator
+hogwartSim/general/creator/CreatureCreator.java
+ hogwartSim.general.creator.CreatureCreator
+hogwartSim/general/Teacher.java
+ hogwartSim.general.Teacher
 hogwartSim/interactions/InteractionAgent.java
  hogwartSim.interactions.InteractionAgent
-hogwartSim/general/creator/ICreatureCreator.java
- hogwartSim.general.creator.ICreatureCreator
-hogwartSim/dumbledore/Dumbledore.java
- hogwartSim.dumbledore.Dumbledore
-hogwartSim/dumbledore/creator/DumbledoreCreator.java
- hogwartSim.dumbledore.creator.DumbledoreCreator
