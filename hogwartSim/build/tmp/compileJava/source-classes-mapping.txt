@@ -36,19 +36,19 @@ hogwartSim/general/creator/CreatureCreator.java
  hogwartSim.general.creator.CreatureCreator
 hogwartSim/general/Student.java
  hogwartSim.general.Student
-hogwartSim/dumbledore/Dumbledore.java
- hogwartSim.dumbledore.Dumbledore
+hogwartSim/Simulation.java
+ hogwartSim.Simulation
 hogwartSim/dumbledore/creator/IDumbledoreCreator.java
  hogwartSim.dumbledore.creator.IDumbledoreCreator
 hogwartSim/general/Teacher.java
  hogwartSim.general.Teacher
 hogwartSim/dumbledore/IDumbledore.java
  hogwartSim.dumbledore.IDumbledore
-hogwartSim/dumbledore/creator/DumbledoreCreator.java
- hogwartSim.dumbledore.creator.DumbledoreCreator
-hogwartSim/general/creator/ICreatureCreator.java
- hogwartSim.general.creator.ICreatureCreator
 hogwartSim/interactions/InteractionAgent.java
  hogwartSim.interactions.InteractionAgent
-hogwartSim/Simulation.java
- hogwartSim.Simulation
+hogwartSim/general/creator/ICreatureCreator.java
+ hogwartSim.general.creator.ICreatureCreator
+hogwartSim/dumbledore/Dumbledore.java
+ hogwartSim.dumbledore.Dumbledore
+hogwartSim/dumbledore/creator/DumbledoreCreator.java
+ hogwartSim.dumbledore.creator.DumbledoreCreator

@@ -28,16 +28,7 @@ class DumbledoreTest {
 
     }
     @Test
-    void declareWinner_IfTwoHousesHaveTheSamePoints_TheSecondOneWins() {
-        //given
-        Dumbledore dumbledore = new Dumbledore();
-        dumbledore.housesPoints = new int[]{0, 100, 0, 100}; //Slytherin and Ravenclaw have the same amount of points
-        //then
-        Assertions.assertEquals( dumbledore.declareWinner(), HogwartHouses.RAVENCLAW);
-
-    }
-    @Test
-    void declareWinner_IfThreeHousesHaveTheSamePoints_TheSecondOneWins() {
+    void declareWinner_IfMultipleHousesHaveTheSamePoints_TheSecondOneWins() {
         //given
         Dumbledore dumbledore = new Dumbledore();
         dumbledore.housesPoints = new int[]{0, 100, 100, 100}; //Slytherin, Hufflepuff and Ravenclaw have the same amount of points
