@@ -74,7 +74,7 @@ public class Simulation {
 
     /**
      * starting method
-     * @param args
+     * @param args 4 initial values for following numbers: "map size, number of: students, teachers and iterations"
      */
     public static void main(String[] args){
 

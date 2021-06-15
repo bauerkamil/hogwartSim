@@ -18,8 +18,8 @@ package hogwartSim.map{
     class MaraudersMap{
         - rnd: Random
         - mapSize: int
-        - creaturePosition: Map<ICreature, PositionXY>
-        - itemPosition: Map<IItem, PositionXY>
+        # creaturePosition: Map<ICreature, PositionXY>
+        # itemPosition: Map<IItem, PositionXY>
 
         + getCreatures(): List<ICreature>
         + randomLocate(ICreature): void
