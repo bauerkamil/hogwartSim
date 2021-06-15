@@ -3,7 +3,7 @@ This is a project for object-oriented programming class. It's a simulation of a 
 Available on github under the link: https://github.com/bauerkamil/hogwartSim.git
 
 ## Authors:
-Kamil Bauer
+Kamil Bauer,
 Dominik Kilijan
 
 ## How to use it:
@@ -17,5 +17,5 @@ e.g.: 40 32 12 50
 Read statistics straightly from console output (number of points for each day, as well as what action happened) or from HouseChart.csv file (only number of points)
 
 ## Additional features:
-Github repository: https://github.com/bauerkamil/hogwartSim.git
+Github repository: https://github.com/bauerkamil/hogwartSim.git <br />
 Unit tests
