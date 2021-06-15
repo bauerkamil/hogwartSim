@@ -1,10 +1,18 @@
-hogwartSim/dumbledore/DumbledoreTest.java
- hogwartSim.dumbledore.DumbledoreTest
-hogwartSim/general/WizardTest.java
- hogwartSim.general.WizardTest
-hogwartSim/general/TeacherTest.java
- hogwartSim.general.TeacherTest
 hogwartSim/general/StudentTest.java
  hogwartSim.general.StudentTest
+hogwartSim/map/PositionXYTest.java
+ hogwartSim.map.PositionXYTest
+hogwartSim/general/WizardTest.java
+ hogwartSim.general.WizardTest
 hogwartSim/general/BasiliskTest.java
  hogwartSim.general.BasiliskTest
+hogwartSim/general/creator/ItemCreatorTest.java
+ hogwartSim.general.creator.ItemCreatorTest
+hogwartSim/general/TeacherTest.java
+ hogwartSim.general.TeacherTest
+hogwartSim/dumbledore/DumbledoreTest.java
+ hogwartSim.dumbledore.DumbledoreTest
+hogwartSim/map/MaraudersMapTest.java
+ hogwartSim.map.MaraudersMapTest
+hogwartSim/general/creator/CreatureCreatorTest.java
+ hogwartSim.general.creator.CreatureCreatorTest

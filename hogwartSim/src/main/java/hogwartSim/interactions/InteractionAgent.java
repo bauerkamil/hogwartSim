@@ -14,8 +14,8 @@ public class InteractionAgent implements IInteractionAgent {
 
     /**
      * handles cases of creatures meeting other things on the map
-     * @param creature
-     * @param map
+     * @param creature Student, teacher or basilisk
+     * @param map The map
      */
     public static void action(ICreature creature, IMap map){
 
@@ -26,8 +26,8 @@ public class InteractionAgent implements IInteractionAgent {
 
     /**
      * Checks class of creature and activates proper action
-     * @param creature
-     * @param map
+     * @param creature Student, teacher or basilisk
+     * @param map The map
      */
     protected static void handleCreatureMeeting(ICreature creature, IMap map){
         List<ICreature> creaturesOnPosition = map.getAtPosition(map.getPosition(creature));
@@ -55,7 +55,7 @@ public class InteractionAgent implements IInteractionAgent {
     }
 
     /**
-     * The class responsible for action between creatures and items
+     * Class responsible for action between creatures and items
      * @param creature Student, teacher or basilisk
      * @param map The map
      */
@@ -66,7 +66,7 @@ public class InteractionAgent implements IInteractionAgent {
         }
         Student student = (Student) creature;
 
-//        don't let dead students intract
+//        don't let dead students interact
         if(!student.getIsAlive()){
             return;
         }

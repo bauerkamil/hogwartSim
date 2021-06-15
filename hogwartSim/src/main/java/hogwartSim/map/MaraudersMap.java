@@ -13,8 +13,8 @@ public class MaraudersMap implements IMap {
 
     protected Random rnd;
     private int mapSize;
-    private Map<ICreature, PositionXY> creaturePosition;
-    private Map<IItem, PositionXY> itemPosition;
+    protected Map<ICreature, PositionXY> creaturePosition;
+    protected Map<IItem, PositionXY> itemPosition;
 
 
     /**

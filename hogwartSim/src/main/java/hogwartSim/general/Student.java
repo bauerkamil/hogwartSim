@@ -15,13 +15,13 @@ public class Student extends Wizard {
 
     /**
      * get state of student, whether alive or not
-     * @return
+     * @return Returns boolean value depending on state of the student
      */
     public boolean getIsAlive(){return this.isAlive;}
 
     /**
      * get house of the student
-     * @return
+     * @return Returns the right House
      */
     public HogwartHouses getHouse() {
         return house;
@@ -36,7 +36,7 @@ public class Student extends Wizard {
 
     /**
      * Uses the itemToBeUsed, removes the itemToBeUsed from the map, adds points
-     * @param itemToBeUsed
+     * @param itemToBeUsed Butterbeer
      */
     public void use(IItem itemToBeUsed) {
         itemToBeUsed.getUsed();

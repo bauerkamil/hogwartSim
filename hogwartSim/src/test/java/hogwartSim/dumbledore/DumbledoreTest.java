@@ -4,7 +4,6 @@ import hogwartSim.general.HogwartHouses;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class DumbledoreTest {
 
@@ -19,7 +18,7 @@ class DumbledoreTest {
     }
 
     @Test
-    void declareWinner_WhenSlytherinHasTheMostPoints() {
+    void declareWinner() {
         //given
         Dumbledore dumbledore = new Dumbledore();
         dumbledore.housesPoints = new int[]{0, 100, 0, 0};

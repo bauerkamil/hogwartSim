@@ -16,7 +16,7 @@ public class PositionXY {
     /**
      * Override equals method to check if given object is type of PositionXY and if their parameters x and y are equal
      * @param o given object
-     * @return
+     * @return Returns true or false whether the position is correct or not
      */
     @Override
     public boolean equals(Object o) {
